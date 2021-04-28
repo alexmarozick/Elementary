@@ -191,9 +191,18 @@ public class CreateTerrain : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
+    public void trying(string co)
+    {
+        color = co;
+        Create(TerrainOffset, TerrainSize);
+    }
+
     public void Changetile(string co)
     {
+        
+
         Mesh mesh = GetComponent<MeshFilter>().mesh;
+        
         mesh.uv = Recolor(co);
         mesh.Optimize();
 
