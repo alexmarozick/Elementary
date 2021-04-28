@@ -8,7 +8,7 @@ Citing the roll a cube tutorial as a source
 https://www.youtube.com/watch?v=TVFGgjRZkSs
 */
 
-public class RollTheCube : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     public float InputThreshold;
     public float duration; //define how long the cube takes to roll
