@@ -71,8 +71,8 @@ GameObject:
   - component: {fileID: 4736918782168079075}
   - component: {fileID: 865281789212073312}
   - component: {fileID: 5771788426740337588}
-  - component: {fileID: 5951619800108664865}
-  - component: {fileID: 8932505206352856406}
+  - component: {fileID: 5590467976705835981}
+  - component: {fileID: 8667576445791153313}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -122,7 +122,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 78afe8a4e308d4e40b6e383f310c3faa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -157,9 +157,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TerrainOffset: {x: 0, y: 0, z: 0}
-  TerrainSize: {x: 0, y: 0, z: 0}
+  TerrainSize: {x: 1, y: 1, z: 1}
   color: grey
---- !u!54 &5951619800108664865
+--- !u!54 &5590467976705835981
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +175,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &8932505206352856406
+--- !u!64 &8667576445791153313
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -155,7 +155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -193,6 +193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7279529753192448288, guid: 568025feca819e5429c87a2395b50de8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1574270242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 568025feca819e5429c87a2395b50de8, type: 3}
 --- !u!1001 &552826813
@@ -212,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -250,6 +254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7279529753192448288, guid: 568025feca819e5429c87a2395b50de8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1574270242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 568025feca819e5429c87a2395b50de8, type: 3}
 --- !u!4 &662393102 stripped
@@ -416,7 +424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -454,6 +462,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7279529753192448288, guid: 568025feca819e5429c87a2395b50de8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1574270242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 568025feca819e5429c87a2395b50de8, type: 3}
 --- !u!4 &939424315 stripped
@@ -539,7 +551,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.1464466, y: -0.8535535, z: 0.35355338, w: 0.35355338}
-  m_LocalPosition: {x: 5.0000005, y: 7.071068, z: 5.000003}
+  m_LocalPosition: {x: 5, y: 8.071068, z: 5.000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -596,7 +608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -634,6 +646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7279529753192448288, guid: 568025feca819e5429c87a2395b50de8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1574270242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 568025feca819e5429c87a2395b50de8, type: 3}
 --- !u!1001 &1215289389
@@ -653,7 +669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -691,6 +707,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7279529753192448288, guid: 568025feca819e5429c87a2395b50de8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1574270242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 568025feca819e5429c87a2395b50de8, type: 3}
 --- !u!1001 &1296564889
@@ -710,7 +730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -748,6 +768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7279529753192448288, guid: 568025feca819e5429c87a2395b50de8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1574270242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 568025feca819e5429c87a2395b50de8, type: 3}
 --- !u!1 &1574270238
@@ -840,7 +864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574270238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1007,7 +1031,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661343068}
   m_LocalRotation: {x: 0.1464466, y: -0.8535535, z: 0.35355338, w: 0.35355338}
-  m_LocalPosition: {x: 5.0000005, y: 7.071068, z: 5.000003}
+  m_LocalPosition: {x: 5, y: 8.071068, z: 5.000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1587476277}
@@ -1031,7 +1055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1069,6 +1093,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7279529753192448288, guid: 568025feca819e5429c87a2395b50de8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1574270242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 568025feca819e5429c87a2395b50de8, type: 3}
 --- !u!1001 &1902134582
@@ -1088,7 +1116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1126,6 +1154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7279529753192448288, guid: 568025feca819e5429c87a2395b50de8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1574270242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 568025feca819e5429c87a2395b50de8, type: 3}
 --- !u!4 &1930407978 stripped
@@ -1155,7 +1187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2533732948309826560, guid: 568025feca819e5429c87a2395b50de8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1193,5 +1225,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain
       objectReference: {fileID: 0}
+    - target: {fileID: 7279529753192448288, guid: 568025feca819e5429c87a2395b50de8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1574270242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 568025feca819e5429c87a2395b50de8, type: 3}

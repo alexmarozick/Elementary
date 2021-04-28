@@ -133,7 +133,7 @@ public class CreateTerrain : MonoBehaviour
         float z = offset.z;
         
         Vector3[] vertices = {
-        new Vector3(0, size, 0),
+            new Vector3(0, size, 0),
 			new Vector3(0, 0, 0),
 			new Vector3(size, size, 0),
 			new Vector3(size, 0, 0),
@@ -160,7 +160,7 @@ public class CreateTerrain : MonoBehaviour
         }
 
         int[] triangles = {
-        0, 2, 1, // front
+            0, 2, 1, // front
 			1, 2, 3,
             4, 5, 6, // back
 			5, 7, 6,
