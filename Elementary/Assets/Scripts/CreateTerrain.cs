@@ -191,7 +191,7 @@ public class CreateTerrain : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
-    void Changetile(string co)
+    public void Changetile(string co)
     {
         Mesh mesh = GetComponent<MeshFilter>().mesh;
         mesh.uv = Recolor(co);
