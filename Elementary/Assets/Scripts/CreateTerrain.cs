@@ -55,8 +55,11 @@ public class CreateTerrain : MonoBehaviour
             uvs = new Vector2[] {
                 new Vector2(0, 1.0f),
                 new Vector2(0.25f, 1.0f),
-                new Vector2(0, 0.75f),
-                new Vector2(0.25f, 0.75f),
+                //new Vector2(0, 0.75f),
+                //new Vector2(0.25f, 0.75f),
+
+                new Vector2(1, 0.75f),
+                new Vector2(1, 0.50f),
 
                 new Vector2(0.5f, 1.0f),
                 new Vector2(0.5f, 0.75f),
@@ -187,7 +190,7 @@ public class CreateTerrain : MonoBehaviour
         mesh.triangles = triangles;
         mesh.uv = uvs;
         mesh.Optimize();
-
+        
         mesh.RecalculateNormals();
     }
 
