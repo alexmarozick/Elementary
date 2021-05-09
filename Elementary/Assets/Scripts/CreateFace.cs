@@ -20,7 +20,8 @@ public class CreateFace : MonoBehaviour
     private Color rColor = new Color(0.871f, 0.376f, 0.141f);
     private Color bColor = new Color(0.275f, 0.451f, 0.773f);
     private Color gColor = new Color(0.545f, 0.545f, 0.545f);
-
+    private Color grColor = new Color(0.016f, 0.612f, 0.346f);
+    private Color cColor = new Color(0.604f, 0.914f, 0.961f);
 
     void Start()
     {
@@ -116,6 +117,12 @@ public class CreateFace : MonoBehaviour
         else if (color == "red")
         {
             r.material.color = rColor;
+        }else if (color == "cyan")
+        {
+            r.material.color = cColor;
+        }else if (color == "green")
+        {
+            r.material.color = grColor;
         }
         else
         {
@@ -146,6 +153,13 @@ public class CreateFace : MonoBehaviour
         else if (color == "red")
         {
             r.material.color = rColor;
+        }
+        else if (color == "cyan")
+        {
+            r.material.color = cColor;
+        }else if (color == "green")
+        {
+            r.material.color = grColor;
         }
         else
         {

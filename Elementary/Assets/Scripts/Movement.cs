@@ -59,12 +59,228 @@ public class Movement : MonoBehaviour
                 script6.SetColor(script4.GetColor());
                 script4.SetColor(hold);
             }
-        }
-        else if(current == "down")
-        {
-            if(previous == "up")
+            else if (previous == "up")
             {
 
+                string hold = script2.GetColor();
+                script2.SetColor(script5.GetColor());
+                script5.SetColor(hold);
+
+                hold = script1.GetColor();
+                script1.SetColor(script3.GetColor());
+                script3.SetColor(script6.GetColor());
+                script6.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+
+
+                hold = script3.GetColor();
+                script3.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+            }
+            else if (previous == "right")
+            {
+                
+                string hold = script1.GetColor();
+                script1.SetColor(script2.GetColor());
+                script2.SetColor(hold);
+
+                hold = script6.GetColor();
+                script6.SetColor(script5.GetColor());
+                script5.SetColor(hold);
+
+                hold = script2.GetColor();
+                script2.SetColor(script5.GetColor());
+                script5.SetColor(hold);
+            }else if(previous == "left")
+            {
+                
+                string hold = script3.GetColor();
+                script3.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+
+                hold = script6.GetColor();
+                script6.SetColor(script2.GetColor());
+                script2.SetColor(hold);
+
+                hold = script1.GetColor();
+                script1.SetColor(script5.GetColor());
+                script5.SetColor(hold);
+            }
+        }
+        else if(current == "up")
+        {
+            if (previous == "up")
+            {
+                string hold = script1.GetColor();
+                script1.SetColor(script3.GetColor());
+                script3.SetColor(script6.GetColor());
+                script6.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+            }
+            else if (previous == "down")
+            {
+                string hold = script2.GetColor();
+                script2.SetColor(script5.GetColor());
+                script5.SetColor(hold);
+
+                hold = script1.GetColor();
+                script1.SetColor(script3.GetColor());
+                script3.SetColor(script6.GetColor());
+                script6.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+                
+
+                hold = script3.GetColor();
+                script3.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+            }else if(previous == "right")
+            {
+                
+                string hold = script3.GetColor();
+                script3.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+
+                hold = script6.GetColor();
+                script6.SetColor(script5.GetColor());
+                script5.SetColor(hold);
+
+                hold = script1.GetColor();
+                script1.SetColor(script2.GetColor());
+                script2.SetColor(hold);
+            }
+            else if(previous == "left")
+            {
+                Debug.Log("trying");
+                string hold = script1.GetColor();
+                script1.SetColor(script2.GetColor());
+                script2.SetColor(hold);
+
+                hold = script6.GetColor();
+                script6.SetColor(script5.GetColor());
+                script5.SetColor(hold);
+
+                hold = script6.GetColor();
+                script6.SetColor(script1.GetColor());
+                script1.SetColor(hold);
+            }
+        }
+        else if (current == "right")
+        {
+            if (previous == "right")
+            {
+                string hold = script1.GetColor();
+                script1.SetColor(script3.GetColor());
+                script3.SetColor(script6.GetColor());
+                script6.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+            }
+            else if (previous == "left")
+            {
+                string hold = script2.GetColor();
+                script2.SetColor(script5.GetColor());
+                script5.SetColor(hold);
+
+                hold = script1.GetColor();
+                script1.SetColor(script3.GetColor());
+                script3.SetColor(script6.GetColor());
+                script6.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+
+
+                hold = script1.GetColor();
+                script1.SetColor(script6.GetColor());
+                script6.SetColor(hold);
+
+            }
+            else if (previous == "down")
+            {
+                
+                string hold = script1.GetColor();
+                script1.SetColor(script6.GetColor());
+                script6.SetColor(hold);
+
+                hold = script3.GetColor();
+                script3.SetColor(script2.GetColor());
+                script2.SetColor(hold);
+
+                hold = script4.GetColor();
+                script4.SetColor(script5.GetColor());
+                script5.SetColor(hold);
+                
+            }else if (previous == "up")
+            {
+                string hold = script3.GetColor();
+                script3.SetColor(script2.GetColor());
+                script2.SetColor(hold);
+
+                hold = script4.GetColor();
+                script4.SetColor(script5.GetColor());
+                script5.SetColor(hold);
+
+                hold = script3.GetColor();
+                script3.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+            }
+        }
+        else if (current == "left")
+        {
+            if (previous == "left")
+            {
+                string hold = script1.GetColor();
+                script1.SetColor(script3.GetColor());
+                script3.SetColor(script6.GetColor());
+                script6.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+            }
+            else if (previous == "right")
+            {
+                string hold = script2.GetColor();
+                script2.SetColor(script5.GetColor());
+                script5.SetColor(hold);
+
+                hold = script1.GetColor();
+                script1.SetColor(script3.GetColor());
+                script3.SetColor(script6.GetColor());
+                script6.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+
+
+                hold = script1.GetColor();
+                script1.SetColor(script6.GetColor());
+                script6.SetColor(hold);
+
+            }
+            else if (previous == "down")
+            {
+                Debug.Log("trying");
+                string hold = script3.GetColor();
+                script3.SetColor(script5.GetColor());
+                script5.SetColor(hold);
+
+                hold = script2.GetColor();
+                script2.SetColor(script3.GetColor());
+                script3.SetColor(hold);
+
+                hold = script2.GetColor();
+                script2.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+
+            }
+            else if (previous == "up")
+            {
+                string hold = script1.GetColor();
+                script1.SetColor(script6.GetColor());
+                script6.SetColor(hold);
+
+                hold = script3.GetColor();
+                script3.SetColor(script5.GetColor());
+                script5.SetColor(hold);
+
+                hold = script2.GetColor();
+                script2.SetColor(script4.GetColor());
+                script4.SetColor(hold);
+
+                
             }
         }
     }

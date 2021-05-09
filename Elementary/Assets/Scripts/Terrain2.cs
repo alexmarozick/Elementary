@@ -20,7 +20,8 @@ public class Terrain2 : MonoBehaviour
     private Color rColor = new Color(0.871f, 0.376f, 0.141f);
     private Color bColor = new Color(0.275f, 0.451f, 0.773f);
     private Color gColor = new Color(0.545f, 0.545f, 0.545f);
-
+    private Color grColor = new Color(0.016f, 0.612f, 0.346f);
+    private Color cColor = new Color(0.604f, 0.914f, 0.961f);
 
     void Start()
     {
@@ -95,29 +96,75 @@ public class Terrain2 : MonoBehaviour
         mesh.triangles = triangles;
         mesh.uv = uvs;
         MeshRenderer r = GetComponent<MeshRenderer>();
-        
 
 
-        if(color == "yellow")
+
+        if (color == "yellow")
         {
             r.material.color = yColor;
-        }else if (color == "blue")
+        }
+        else if (color == "blue")
         {
             r.material.color = bColor;
-        }else if (color == "red")
+        }
+        else if (color == "red")
         {
             r.material.color = rColor;
+        }
+        else if (color == "cyan")
+        {
+            r.material.color = cColor;
+        }
+        else if (color == "green")
+        {
+            r.material.color = grColor;
         }
         else
         {
             r.material.color = gColor;
         }
-        
+
 
 
         //mesh.uv = uvs;
         mesh.Optimize();
         mesh.RecalculateNormals();
+    }
+
+
+    public void SetColor(string co)
+    {
+        MeshRenderer r = GetComponent<MeshRenderer>();
+
+        color = co;
+
+        if (color == "yellow")
+        {
+            r.material.color = yColor;
+        }
+        else if (color == "blue")
+        {
+            r.material.color = bColor;
+        }
+        else if (color == "red")
+        {
+            r.material.color = rColor;
+        }
+        else if (color == "cyan")
+        {
+            r.material.color = cColor;
+        }
+        else if (color == "green")
+        {
+            r.material.color = grColor;
+        }
+        else
+        {
+            r.material.color = gColor;
+        }
+
+
+
     }
 
 

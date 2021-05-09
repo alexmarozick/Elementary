@@ -456,6 +456,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6107872783253716941, guid: 0369c4782e17c7b45b91e24c2d416fac, type: 3}
+      propertyPath: color
+      value: green
+      objectReference: {fileID: 0}
     - target: {fileID: 6107872783253716942, guid: 0369c4782e17c7b45b91e24c2d416fac, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -529,7 +533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6107872783253716941, guid: 0369c4782e17c7b45b91e24c2d416fac, type: 3}
       propertyPath: color
-      value: yellow
+      value: cyan
       objectReference: {fileID: 0}
     - target: {fileID: 6107872783253716942, guid: 0369c4782e17c7b45b91e24c2d416fac, type: 3}
       propertyPath: m_RootOrder
@@ -604,7 +608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6107872783253716941, guid: 0369c4782e17c7b45b91e24c2d416fac, type: 3}
       propertyPath: color
-      value: red
+      value: grey
       objectReference: {fileID: 0}
     - target: {fileID: 6107872783253716942, guid: 0369c4782e17c7b45b91e24c2d416fac, type: 3}
       propertyPath: m_RootOrder
