@@ -15,10 +15,10 @@ public class Colorchange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        recolor(color);
+        Recolor(color);
     }
 
-    public void recolor(string co)
+    public void Recolor(string co)
     {
         r = GetComponent<ParticleSystem>();
 

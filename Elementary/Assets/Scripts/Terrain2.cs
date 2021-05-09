@@ -123,7 +123,7 @@ public class Terrain2 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("enter");
+        //Debug.Log("enter");
         if (other.transform == player)
         {
             connected = true;
@@ -133,7 +133,7 @@ public class Terrain2 : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        Debug.Log("left");
+        //Debug.Log("left");
         if (other.transform == player)
         {
             connected = false;

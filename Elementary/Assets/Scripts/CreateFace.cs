@@ -26,8 +26,13 @@ public class CreateFace : MonoBehaviour
     {
         
         counter = -1;
-        Create("blue");
+        Create(color);
 
+    }
+
+    public string GetColor()
+    {
+        return color;
     }
 
     public void Create(string co)
@@ -124,7 +129,7 @@ public class CreateFace : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
-    public void Recolor(string co)
+    public void SetColor(string co)
     {
         MeshRenderer r = GetComponent<MeshRenderer>();
 
