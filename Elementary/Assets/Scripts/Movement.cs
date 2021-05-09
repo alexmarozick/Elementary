@@ -50,8 +50,10 @@ public class Movement : MonoBehaviour
             point = x > 0 ?
                 transform.position + (Vector3.right * scale) :
                 transform.position + (Vector3.left * scale);
+            
             angle = x > 0 ? -90 : 90;
             direction = x > 0 ? Vector3.right : Vector3.left;
+            
         }
         else if (y != 0)
         { //forward or backward key
@@ -59,9 +61,10 @@ public class Movement : MonoBehaviour
             point = y > 0 ?
                 transform.position + (Vector3.forward * scale) :
                 transform.position + (Vector3.back * scale);
+            
             angle = y > 0 ? 90 : -90;
             direction = y > 0 ? Vector3.forward : Vector3.back;
-
+            
         }
         point += new Vector3(0, -scale, 0);
         Vector3 adjustPos = point + direction * scale - new Vector3(0, -0.5f, 0);
@@ -77,7 +80,9 @@ public class Movement : MonoBehaviour
         }
 
         transform.position = adjustPos;
+        
         transform.rotation = adjustRotation;
+
         isRolling = false;
     }
 }

@@ -6,17 +6,17 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
 
-public class Terrain2 : MonoBehaviour
+public class CreateFace : MonoBehaviour
 {
-    public Transform player;
+    
     public GameObject terrain;
     public Vector3 TerrainOffset;
     public Vector3 TerrainSize;
-    bool connected, shift;
+    
     public string color = "grey";
     int counter = 0;
 
-    private Color yColor = new Color(0.914f,0.788f,0.263f); 
+    private Color yColor = new Color(0.914f, 0.788f, 0.263f);
     private Color rColor = new Color(0.871f, 0.376f, 0.141f);
     private Color bColor = new Color(0.275f, 0.451f, 0.773f);
     private Color gColor = new Color(0.545f, 0.545f, 0.545f);
@@ -24,24 +24,26 @@ public class Terrain2 : MonoBehaviour
 
     void Start()
     {
-        shift = false;
-        counter = -1;
-        Create(color);
         
+        counter = -1;
+        Create("blue");
+
     }
 
     public void Create(string co)
     {
+        Debug.Log("created");
         color = co;
         counter = counter + 1;
-        if(counter >= 4)
+       if (counter >= 4)
         {
             counter = 0;
         }
-        if(counter == 1)
+        /*if (counter == 1)
         {
             color = "yellow";
-        }else if (counter == 2)
+        }
+        else if (counter == 2)
         {
             color = "red";
         }
@@ -52,12 +54,12 @@ public class Terrain2 : MonoBehaviour
         else
         {
             color = "grey";
-        }
+        }*/
 
 
         float size = 1f;
 
-        
+
 
         Vector3[] vertices = {
             new Vector3(0, 0, size),
@@ -95,16 +97,18 @@ public class Terrain2 : MonoBehaviour
         mesh.triangles = triangles;
         mesh.uv = uvs;
         MeshRenderer r = GetComponent<MeshRenderer>();
-        
 
 
-        if(color == "yellow")
+
+        if (color == "yellow")
         {
             r.material.color = yColor;
-        }else if (color == "blue")
+        }
+        else if (color == "blue")
         {
             r.material.color = bColor;
-        }else if (color == "red")
+        }
+        else if (color == "red")
         {
             r.material.color = rColor;
         }
@@ -112,7 +116,7 @@ public class Terrain2 : MonoBehaviour
         {
             r.material.color = gColor;
         }
-        
+
 
 
         //mesh.uv = uvs;
@@ -120,35 +124,36 @@ public class Terrain2 : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
-
-    void OnTriggerEnter(Collider other)
+    public void Recolor(string co)
     {
-        Debug.Log("enter");
-        if (other.transform == player)
+        MeshRenderer r = GetComponent<MeshRenderer>();
+
+        color = co;
+
+        if (color == "yellow")
         {
-            connected = true;
-            shift = true;
+            r.material.color = yColor;
         }
+        else if (color == "blue")
+        {
+            r.material.color = bColor;
+        }
+        else if (color == "red")
+        {
+            r.material.color = rColor;
+        }
+        else
+        {
+            r.material.color = gColor;
+        }
+
+
+
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        Debug.Log("left");
-        if (other.transform == player)
-        {
-            connected = false;
-        }
-    }
 
     void Update()
     {
-        if (connected && shift)
-        {
-            
-            Create("yellow");
-            
-            shift = false;
-            
-        }
+        
     }
 }

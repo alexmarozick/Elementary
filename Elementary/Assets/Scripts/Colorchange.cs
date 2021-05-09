@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Colorchange : MonoBehaviour
+{
+
+    public string color = "yellow";
+
+    private ParticleSystem r;
+    private Color yColor = new Color(0.914f, 0.788f, 0.263f);
+    private Color rColor = new Color(0.871f, 0.376f, 0.141f);
+    private Color bColor = new Color(0.275f, 0.451f, 0.773f);
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        recolor(color);
+    }
+
+    public void recolor(string co)
+    {
+        r = GetComponent<ParticleSystem>();
+
+        var ps = r.main;
+        color = co;
+
+        if (color == "yellow")
+        {
+            ps.startColor = yColor;
+        }
+        else if (color == "blue")
+        {
+            ps.startColor = bColor;
+        }
+        else if (color == "red")
+        {
+            ps.startColor = rColor;
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
