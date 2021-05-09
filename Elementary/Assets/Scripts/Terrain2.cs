@@ -14,7 +14,11 @@ public class Terrain2 : MonoBehaviour
     public Vector3 TerrainSize;
     bool connected, shift;
     public string color = "grey";
-    int counter = 0;
+    
+
+    string shiftto = "grey";
+
+    CreateFace script1;
 
     private Color yColor = new Color(0.914f,0.788f,0.263f); 
     private Color rColor = new Color(0.871f, 0.376f, 0.141f);
@@ -26,7 +30,7 @@ public class Terrain2 : MonoBehaviour
     void Start()
     {
         shift = false;
-        counter = -1;
+        
         Create(color);
         
     }
@@ -34,26 +38,7 @@ public class Terrain2 : MonoBehaviour
     public void Create(string co)
     {
         color = co;
-        counter = counter + 1;
-        if(counter >= 4)
-        {
-            counter = 0;
-        }
-        if(counter == 1)
-        {
-            color = "yellow";
-        }else if (counter == 2)
-        {
-            color = "red";
-        }
-        else if (counter == 3)
-        {
-            color = "blue";
-        }
-        else
-        {
-            color = "grey";
-        }
+        shiftto = color;
 
 
         float size = 1f;
@@ -131,9 +116,10 @@ public class Terrain2 : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
-
+    //Method to change tile color
     public void SetColor(string co)
     {
+        
         MeshRenderer r = GetComponent<MeshRenderer>();
 
         color = co;
@@ -168,20 +154,51 @@ public class Terrain2 : MonoBehaviour
     }
 
 
+    //Use this for the actual interactions. "co" refers to the color of the face it just intersected
+    void ColorEffect(string co)
+    {
+        
+        if(color == "grey")
+        {
+            SetColor(co);
+        }
+        else
+        {
+            SetColor(co);
+        }
+        
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("enter");
-        if (other.transform == player)
+        if(!connected & !shift)
         {
-            connected = true;
-            shift = true;
+            if (other.CompareTag("Face"))
+            {
+                Debug.Log("whoo");
+                script1 = (CreateFace)other.GetComponentInParent(typeof(CreateFace));
+                if (script1 != null)
+                {
+                    Debug.Log(script1.AskColor());
+                    
+                    if(script1.AskColor() != "travel")
+                    {
+                        connected = true;
+                        shift = true;
+                        shiftto = script1.AskColor();
+                    }
+                    
+                }
+            }
         }
+        
+        
     }
 
     void OnTriggerExit(Collider other)
     {
         //Debug.Log("left");
-        if (other.transform == player)
+        if (other.CompareTag("Face"))
         {
             connected = false;
         }
@@ -192,8 +209,7 @@ public class Terrain2 : MonoBehaviour
         if (connected && shift)
         {
             
-            Create("yellow");
-            
+            ColorEffect(shiftto);
             shift = false;
             
         }

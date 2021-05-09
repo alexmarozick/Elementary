@@ -12,9 +12,11 @@ public class CreateFace : MonoBehaviour
     public GameObject terrain;
     public Vector3 TerrainOffset;
     public Vector3 TerrainSize;
-    
+
+    bool ready;
+
     public string color = "grey";
-    int counter = 0;
+    
 
     private Color yColor = new Color(0.914f, 0.788f, 0.263f);
     private Color rColor = new Color(0.871f, 0.376f, 0.141f);
@@ -25,42 +27,48 @@ public class CreateFace : MonoBehaviour
 
     void Start()
     {
+        ready = true;
         
-        counter = -1;
         Create(color);
 
     }
 
+    public string AskColor()
+    {
+        //method for the tiles to check
+        if (ready)
+        {
+            return GetColor();
+        }
+        else
+        {
+            return "travel";
+        }
+    }
+
     public string GetColor()
     {
+        //used by Player cube when coordinating movement
         return color;
+    }
+
+    public void Close()
+    {
+        //make unreadable by tiles
+        ready = false;
+    }
+
+    public void Open()
+    {
+        //make readable by tiles
+        ready = true;
     }
 
     public void Create(string co)
     {
         Debug.Log("created");
         color = co;
-        counter = counter + 1;
-       if (counter >= 4)
-        {
-            counter = 0;
-        }
-        /*if (counter == 1)
-        {
-            color = "yellow";
-        }
-        else if (counter == 2)
-        {
-            color = "red";
-        }
-        else if (counter == 3)
-        {
-            color = "blue";
-        }
-        else
-        {
-            color = "grey";
-        }*/
+        
 
 
         float size = 1f;

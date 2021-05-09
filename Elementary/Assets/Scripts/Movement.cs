@@ -47,6 +47,30 @@ public class Movement : MonoBehaviour
         }
     }
 
+    //make tile colors unreadable when moving
+    public void Close()
+    {
+        script1.Close();
+        script2.Close();
+        script3.Close();
+        script4.Close();
+        script5.Close();
+        script6.Close();
+
+    }
+
+    //make tile colors readable after moving
+    public void Open()
+    {
+        script1.Open();
+        script2.Open();
+        script3.Open();
+        script4.Open();
+        script5.Open();
+        script6.Open();
+    }
+
+    //Method is used to make tile color consistent
     public void AngleFix()
     {
         if(current == "down")
@@ -287,6 +311,7 @@ public class Movement : MonoBehaviour
 
     IEnumerator RollingCube(float x, float y)
     {
+        Close();
         previous = current;
         float elapsed = 0.0f;
         Vector3 point = Vector3.zero;
@@ -333,7 +358,7 @@ public class Movement : MonoBehaviour
             }
 
         }
-        Debug.Log(current);
+        //Debug.Log(current);
 
         point += new Vector3(0, -scale, 0);
         Vector3 adjustPos = point + direction * scale - new Vector3(0, -0.5f, 0);
@@ -353,6 +378,7 @@ public class Movement : MonoBehaviour
         transform.rotation = adjustRotation;
         AngleFix();
         isRolling = false;
+        Open();
     }
 }
 

@@ -124,6 +124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: planeDetect
       objectReference: {fileID: 0}
+    - target: {fileID: 7056816502705686301, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
+      propertyPath: m_Center.y
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7056816502705686303, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -171,7 +175,7 @@ PrefabInstance:
     - target: {fileID: 7056816502705686307, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6107872783253716942, guid: 0369c4782e17c7b45b91e24c2d416fac, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
 --- !u!4 &5093794744355198396 stripped
@@ -189,6 +193,10 @@ PrefabInstance:
     - target: {fileID: 7056816502705686296, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: m_Name
       value: planeDetect (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7056816502705686301, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
+      propertyPath: m_Center.y
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7056816502705686303, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: m_RootOrder
@@ -237,7 +245,7 @@ PrefabInstance:
     - target: {fileID: 7056816502705686307, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6107872783253716942, guid: 0369c4782e17c7b45b91e24c2d416fac, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
 --- !u!4 &2836725074529346895 stripped
@@ -255,6 +263,10 @@ PrefabInstance:
     - target: {fileID: 7056816502705686296, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: m_Name
       value: planeDetect (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7056816502705686301, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
+      propertyPath: m_Center.y
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7056816502705686303, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: m_RootOrder
@@ -303,7 +315,7 @@ PrefabInstance:
     - target: {fileID: 7056816502705686307, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6107872783253716942, guid: 0369c4782e17c7b45b91e24c2d416fac, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
 --- !u!4 &2836725074583415809 stripped
@@ -321,6 +333,10 @@ PrefabInstance:
     - target: {fileID: 7056816502705686296, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: m_Name
       value: planeDetect (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7056816502705686301, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
+      propertyPath: m_Center.y
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7056816502705686303, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: m_RootOrder
@@ -369,7 +385,7 @@ PrefabInstance:
     - target: {fileID: 7056816502705686307, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6107872783253716942, guid: 0369c4782e17c7b45b91e24c2d416fac, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
 --- !u!4 &2836725074430741083 stripped
@@ -387,6 +403,10 @@ PrefabInstance:
     - target: {fileID: 7056816502705686296, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: m_Name
       value: planeDetect (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7056816502705686301, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
+      propertyPath: m_Center.y
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7056816502705686303, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: m_RootOrder
@@ -435,7 +455,7 @@ PrefabInstance:
     - target: {fileID: 7056816502705686307, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6107872783253716942, guid: 0369c4782e17c7b45b91e24c2d416fac, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95bf1c3b52a99064db8c1daf5dc9ef7b, type: 3}
 --- !u!4 &2836725073764878989 stripped
