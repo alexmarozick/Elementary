@@ -1,6 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 /* 
@@ -15,9 +19,11 @@ public class Movement : MonoBehaviour
     bool isRolling = false;
     float scale;
     string current, previous;
+    bool newsquare;
 
     public GameObject face1, face2, face3, face4, face5, face6;
     CreateFace script1, script2, script3, script4, script5, script6;
+    Terrain2 scriptX;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +35,7 @@ public class Movement : MonoBehaviour
         script4 = (CreateFace)face4.GetComponent(typeof(CreateFace));
         script5 = (CreateFace)face5.GetComponent(typeof(CreateFace));
         script6 = (CreateFace)face6.GetComponent(typeof(CreateFace));
-
+        newsquare = false;
     }
 
     // Update is called once per frame
@@ -37,6 +43,13 @@ public class Movement : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
+
+        if (newsquare)
+        {
+            //CheckSquare();
+            newsquare = false;
+        }
+
 
         if (!isRolling && ((x > InputThreshold || x < -InputThreshold) || (y > InputThreshold || y < -InputThreshold)))
         {
@@ -69,6 +82,38 @@ public class Movement : MonoBehaviour
         script5.Open();
         script6.Open();
     }
+
+    //idea is we use this to check the square beneath the tile the cube is one
+    public void CheckSquare()
+    {
+        newsquare = false;
+
+
+        //this method only works on occassion? I'm not sure why as it seems to be sending it in the correct direction
+        //alternatively we could try a collider of some sort but that requires changing it's orientation as the cube does shenanigans
+
+        //Vector3 direction = player.position - transform.position + Vector3.up;
+        Vector3 direction = Vector3.down;
+        Ray ray = new Ray(transform.position, Vector3.down);
+        RaycastHit raycastHit;
+
+        if (Physics.Raycast(ray, out raycastHit))
+        {
+            Debug.Log(direction);
+            Debug.Log(transform.position);
+            //if ((raycastHit.collider.transform.parent != null) && raycastHit.collider.transform.CompareTag("Tile"))
+            if (raycastHit.collider.transform.CompareTag("Tile"))
+            {
+                //terrain.GetComponent<CreateTerrain>().trying("red");
+
+                //scriptX = (Terrain2)raycastHit.collider.transform.GetComponentInParent(typeof(Terrain2));
+                Debug.Log("it hit");
+            }
+        }
+
+    }
+
+
 
     //Method is used to make tile color consistent
     public void AngleFix()
@@ -379,6 +424,7 @@ public class Movement : MonoBehaviour
         AngleFix();
         isRolling = false;
         Open();
+        newsquare = true;
     }
 }
 

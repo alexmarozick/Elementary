@@ -346,6 +346,7 @@ MonoBehaviour:
   TerrainOffset: {x: -0.5, y: 0.01, z: -0.5}
   TerrainSize: {x: 1, y: 1, z: 1}
   color: grey
+  direction: none
 --- !u!4 &551559071
 Transform:
   m_ObjectHideFlags: 0
@@ -605,6 +606,7 @@ MonoBehaviour:
   TerrainOffset: {x: -0.5, y: 0.01, z: -0.5}
   TerrainSize: {x: 1, y: 1, z: 1}
   color: grey
+  direction: none
 --- !u!4 &750877686
 Transform:
   m_ObjectHideFlags: 0

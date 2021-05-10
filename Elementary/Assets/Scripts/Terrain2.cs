@@ -14,7 +14,7 @@ public class Terrain2 : MonoBehaviour
     public Vector3 TerrainSize;
     bool connected, shift;
     public string color = "grey";
-    
+    public string direction = "none";
 
     string shiftto = "grey";
 
@@ -116,6 +116,11 @@ public class Terrain2 : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
+    public string GetColor()
+    {
+        return color;
+    }
+    
     //Method to change tile color
     public void SetColor(string co)
     {
@@ -175,11 +180,11 @@ public class Terrain2 : MonoBehaviour
         {
             if (other.CompareTag("Face"))
             {
-                Debug.Log("whoo");
+                //Debug.Log("whoo");
                 script1 = (CreateFace)other.GetComponentInParent(typeof(CreateFace));
                 if (script1 != null)
                 {
-                    Debug.Log(script1.AskColor());
+                    //Debug.Log(script1.AskColor());
                     
                     if(script1.AskColor() != "travel")
                     {

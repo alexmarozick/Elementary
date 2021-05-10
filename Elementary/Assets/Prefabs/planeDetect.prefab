@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7056816502705686302}
   m_Layer: 0
   m_Name: planeDetect
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,6 +51,7 @@ MonoBehaviour:
   TerrainOffset: {x: -0.5, y: 0, z: -0.5}
   TerrainSize: {x: 1, y: 1, z: 1}
   color: grey
+  direction: none
 --- !u!23 &7056816502705686300
 MeshRenderer:
   m_ObjectHideFlags: 0
