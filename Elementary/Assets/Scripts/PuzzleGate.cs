@@ -17,7 +17,7 @@ public class PuzzleGate
     public int countdown;
 
     public GameObject square1, square2, square3, square4, square5, square6, square7, square8;
-    protected Tilesystem script1, script2, script3, script4, script5, script6, script7, script8;
+    protected TerrainSystem script1, script2, script3, script4, script5, script6, script7, script8;
 
 
     public PuzzleGate()
@@ -26,35 +26,35 @@ public class PuzzleGate
         locked = true;
         if(square1 != null)
         {
-            script1 = (Tilesystem)square1.GetComponent(typeof(Tilesystem));
+            script1 = (TerrainSystem)square1.GetComponent(typeof(TerrainSystem));
         }
         if (square2!= null)
         {
-            script2 = (Tilesystem)square2.GetComponent(typeof(Tilesystem));
+            script2 = (TerrainSystem)square2.GetComponent(typeof(TerrainSystem));
         }
         if (square3 != null)
         {
-            script3 = (Tilesystem)square3.GetComponent(typeof(Tilesystem));
+            script3 = (TerrainSystem)square3.GetComponent(typeof(TerrainSystem));
         }
         if (square4 != null)
         {
-            script4 = (Tilesystem)square4.GetComponent(typeof(Tilesystem));
+            script4 = (TerrainSystem)square4.GetComponent(typeof(TerrainSystem));
         }
         if (square5 != null)
         {
-            script5 = (Tilesystem)square5.GetComponent(typeof(Tilesystem));
+            script5 = (TerrainSystem)square5.GetComponent(typeof(TerrainSystem));
         }
         if (square6 != null)
         {
-            script6 = (Tilesystem)square6.GetComponent(typeof(Tilesystem));
+            script6 = (TerrainSystem)square6.GetComponent(typeof(TerrainSystem));
         }
         if (square7 != null)
         {
-            script7 = (Tilesystem)square7.GetComponent(typeof(Tilesystem));
+            script7 = (TerrainSystem)square7.GetComponent(typeof(TerrainSystem));
         }
         if (square8 != null)
         {
-            script8 = (Tilesystem)square8.GetComponent(typeof(Tilesystem));
+            script8 = (TerrainSystem)square8.GetComponent(typeof(TerrainSystem));
         }
     }
 
