@@ -9,12 +9,10 @@ public class GameEnding : MonoBehaviour
     bool m_IsPlayerAtExit;
     int pointTotal = 0;
 
-
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
-
     }
 
     void OnTriggerEnter (Collider other)
@@ -24,14 +22,12 @@ public class GameEnding : MonoBehaviour
             m_IsPlayerAtExit = true;
         }
     }
+
     // Update is called once per frame
     void Update()
     {
-        if(m_IsPlayerAtExit == true) {
+        if (m_IsPlayerAtExit == true) {
             VictoryScreen.Setup(pointTotal);
         }
     }
-
-
-
 }

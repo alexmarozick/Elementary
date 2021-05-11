@@ -2,18 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tilesystem : MonoBehaviour
+public class TerrainSystem : MonoBehaviour
 {
     // Start is called before the first frame update
 
-
     public GameObject face1;
-    Terrain2 script1;
+    CreateTerrain script1;
 
     void Start()
     {
-
-        script1 = (Terrain2)face1.GetComponent(typeof(Terrain2));
+        script1 = (CreateTerrain)face1.GetComponent(typeof(CreateTerrain));
 
         Mesh mesh = GetComponent<MeshFilter>().mesh;
 
@@ -24,11 +22,5 @@ public class Tilesystem : MonoBehaviour
     public string GetColor()
     {
         return script1.GetColor();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
