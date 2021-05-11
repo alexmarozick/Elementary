@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeColor : MonoBehaviour
+public class Colorchange : MonoBehaviour
 {
+
     public string color = "yellow";
 
     private ParticleSystem r;
@@ -30,25 +31,27 @@ public class ChangeColor : MonoBehaviour
         {
             ps.startColor = yColor;
         }
-
         else if (color == "blue")
         {
             ps.startColor = bColor;
         }
-
         else if (color == "red")
         {
             ps.startColor = rColor;
         }
-
         else if (color == "cyan")
         {
             ps.startColor = cColor;
         }
-
         else if (color == "green")
         {
             ps.startColor = grColor;
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
