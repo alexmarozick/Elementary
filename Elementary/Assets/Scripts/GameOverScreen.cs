@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 // credit: Coco Code Creare great GAME OVER screen in Unity UI - Unity Tutorial
 // https://www.youtube.com/watch?v=K4uOjb5p3Io
 
-
 public class GameOverScreen : MonoBehaviour
 {
     public Text pointsText;

@@ -6,13 +6,12 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-
 /* 
 Citing the roll a cube tutorial as a source 
 https://www.youtube.com/watch?v=TVFGgjRZkSs
 */
 
-public class Movement : MonoBehaviour
+public class MovePlayer : MonoBehaviour
 {
     public float InputThreshold;
     public float duration; //define how long the cube takes to roll
@@ -23,7 +22,8 @@ public class Movement : MonoBehaviour
 
     public GameObject face1, face2, face3, face4, face5, face6;
     CreateFace script1, script2, script3, script4, script5, script6;
-    Terrain2 scriptX;
+    CreateTerrain scriptX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +50,6 @@ public class Movement : MonoBehaviour
             newsquare = false;
         }
 
-
         if (!isRolling && ((x > InputThreshold || x < -InputThreshold) || (y > InputThreshold || y < -InputThreshold)))
         {
             // the translate is for sliding the cube
@@ -69,7 +68,6 @@ public class Movement : MonoBehaviour
         script4.Close();
         script5.Close();
         script6.Close();
-
     }
 
     //make tile colors readable after moving
@@ -87,7 +85,6 @@ public class Movement : MonoBehaviour
     public void CheckSquare()
     {
         newsquare = false;
-
 
         //this method only works on occassion? I'm not sure why as it seems to be sending it in the correct direction
         //alternatively we could try a collider of some sort but that requires changing it's orientation as the cube does shenanigans
@@ -110,15 +107,12 @@ public class Movement : MonoBehaviour
                 Debug.Log("it hit");
             }
         }
-
     }
-
-
 
     //Method is used to make tile color consistent
     public void AngleFix()
     {
-        if(current == "down")
+        if (current == "down")
         {
             if (previous == "down")
             {
@@ -128,9 +122,9 @@ public class Movement : MonoBehaviour
                 script6.SetColor(script4.GetColor());
                 script4.SetColor(hold);
             }
+
             else if (previous == "up")
             {
-
                 string hold = script2.GetColor();
                 script2.SetColor(script5.GetColor());
                 script5.SetColor(hold);
@@ -146,9 +140,9 @@ public class Movement : MonoBehaviour
                 script3.SetColor(script4.GetColor());
                 script4.SetColor(hold);
             }
+
             else if (previous == "right")
             {
-                
                 string hold = script1.GetColor();
                 script1.SetColor(script2.GetColor());
                 script2.SetColor(hold);
@@ -160,9 +154,10 @@ public class Movement : MonoBehaviour
                 hold = script2.GetColor();
                 script2.SetColor(script5.GetColor());
                 script5.SetColor(hold);
-            }else if(previous == "left")
+            }
+            
+            else if (previous == "left")
             {
-                
                 string hold = script3.GetColor();
                 script3.SetColor(script4.GetColor());
                 script4.SetColor(hold);
@@ -176,7 +171,8 @@ public class Movement : MonoBehaviour
                 script5.SetColor(hold);
             }
         }
-        else if(current == "up")
+
+        else if (current == "up")
         {
             if (previous == "up")
             {
@@ -186,6 +182,7 @@ public class Movement : MonoBehaviour
                 script6.SetColor(script4.GetColor());
                 script4.SetColor(hold);
             }
+
             else if (previous == "down")
             {
                 string hold = script2.GetColor();
@@ -197,12 +194,13 @@ public class Movement : MonoBehaviour
                 script3.SetColor(script6.GetColor());
                 script6.SetColor(script4.GetColor());
                 script4.SetColor(hold);
-                
 
                 hold = script3.GetColor();
                 script3.SetColor(script4.GetColor());
                 script4.SetColor(hold);
-            }else if(previous == "right")
+            }
+
+            else if (previous == "right")
             {
                 
                 string hold = script3.GetColor();
@@ -217,7 +215,8 @@ public class Movement : MonoBehaviour
                 script1.SetColor(script2.GetColor());
                 script2.SetColor(hold);
             }
-            else if(previous == "left")
+
+            else if (previous == "left")
             {
                 Debug.Log("trying");
                 string hold = script1.GetColor();
@@ -233,6 +232,7 @@ public class Movement : MonoBehaviour
                 script1.SetColor(hold);
             }
         }
+
         else if (current == "right")
         {
             if (previous == "right")
@@ -243,6 +243,7 @@ public class Movement : MonoBehaviour
                 script6.SetColor(script4.GetColor());
                 script4.SetColor(hold);
             }
+
             else if (previous == "left")
             {
                 string hold = script2.GetColor();
@@ -255,12 +256,11 @@ public class Movement : MonoBehaviour
                 script6.SetColor(script4.GetColor());
                 script4.SetColor(hold);
 
-
                 hold = script1.GetColor();
                 script1.SetColor(script6.GetColor());
                 script6.SetColor(hold);
-
             }
+
             else if (previous == "down")
             {
                 
@@ -274,9 +274,10 @@ public class Movement : MonoBehaviour
 
                 hold = script4.GetColor();
                 script4.SetColor(script5.GetColor());
-                script5.SetColor(hold);
-                
-            }else if (previous == "up")
+                script5.SetColor(hold); 
+            }
+            
+            else if (previous == "up")
             {
                 string hold = script3.GetColor();
                 script3.SetColor(script2.GetColor());
@@ -291,6 +292,7 @@ public class Movement : MonoBehaviour
                 script4.SetColor(hold);
             }
         }
+
         else if (current == "left")
         {
             if (previous == "left")
@@ -301,6 +303,7 @@ public class Movement : MonoBehaviour
                 script6.SetColor(script4.GetColor());
                 script4.SetColor(hold);
             }
+
             else if (previous == "right")
             {
                 string hold = script2.GetColor();
@@ -313,12 +316,11 @@ public class Movement : MonoBehaviour
                 script6.SetColor(script4.GetColor());
                 script4.SetColor(hold);
 
-
                 hold = script1.GetColor();
                 script1.SetColor(script6.GetColor());
                 script6.SetColor(hold);
-
             }
+
             else if (previous == "down")
             {
                 Debug.Log("trying");
@@ -335,6 +337,7 @@ public class Movement : MonoBehaviour
                 script4.SetColor(hold);
 
             }
+
             else if (previous == "up")
             {
                 string hold = script1.GetColor();
@@ -347,9 +350,7 @@ public class Movement : MonoBehaviour
 
                 hold = script2.GetColor();
                 script2.SetColor(script4.GetColor());
-                script4.SetColor(hold);
-
-                
+                script4.SetColor(hold);   
             }
         }
     }
@@ -373,16 +374,18 @@ public class Movement : MonoBehaviour
             
             angle = x > 0 ? -90 : 90;
             direction = x > 0 ? Vector3.right : Vector3.left;
-            if(direction== Vector3.right)
+
+            if (direction== Vector3.right)
             {
                 current = "right";
             }
+
             else
             {
                 current = "left";
             }
-            
         }
+
         else if (y != 0)
         { //forward or backward key
             axis = Vector3.right;
@@ -397,11 +400,11 @@ public class Movement : MonoBehaviour
             {
                 current = "up";
             }
+
             else
             {
                 current = "down";
             }
-
         }
         //Debug.Log(current);
 

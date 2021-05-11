@@ -36,7 +36,7 @@ public class UpdateTerrain : MonoBehaviour
             {
                 if (raycastHit.collider.transform == player)
                 {
-                    terrain.GetComponent<CreateTerrain>().trying("red");
+                    terrain.GetComponent<CreateTerrain>().Create("red");
                 }
             }
         }

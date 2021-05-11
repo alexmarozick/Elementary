@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
 
 public class CreateFace : MonoBehaviour
 {
-    
     public GameObject terrain;
     public Vector3 TerrainOffset;
     public Vector3 TerrainSize;
@@ -17,7 +15,6 @@ public class CreateFace : MonoBehaviour
 
     public string color = "grey";
     
-
     private Color yColor = new Color(0.914f, 0.788f, 0.263f);
     private Color rColor = new Color(0.871f, 0.376f, 0.141f);
     private Color bColor = new Color(0.275f, 0.451f, 0.773f);
@@ -30,7 +27,6 @@ public class CreateFace : MonoBehaviour
         ready = true;
         
         Create(color);
-
     }
 
     public string AskColor()
@@ -40,6 +36,7 @@ public class CreateFace : MonoBehaviour
         {
             return GetColor();
         }
+
         else
         {
             return "travel";
@@ -69,11 +66,7 @@ public class CreateFace : MonoBehaviour
         Debug.Log("created");
         color = co;
         
-
-
         float size = 1f;
-
-
 
         Vector3[] vertices = {
             new Vector3(0, 0, size),
@@ -102,7 +95,6 @@ public class CreateFace : MonoBehaviour
 
         //Vector2[] uvs = Recolor(color);
 
-
         Mesh mesh = GetComponent<MeshFilter>().mesh;
 
         mesh.Clear();
@@ -112,32 +104,35 @@ public class CreateFace : MonoBehaviour
         mesh.uv = uvs;
         MeshRenderer r = GetComponent<MeshRenderer>();
 
-
-
         if (color == "yellow")
         {
             r.material.color = yColor;
         }
+
         else if (color == "blue")
         {
             r.material.color = bColor;
         }
+
         else if (color == "red")
         {
             r.material.color = rColor;
-        }else if (color == "cyan")
+        }
+        
+        else if (color == "cyan")
         {
             r.material.color = cColor;
-        }else if (color == "green")
+        }
+
+        else if (color == "green")
         {
             r.material.color = grColor;
         }
+
         else
         {
             r.material.color = gColor;
         }
-
-
 
         //mesh.uv = uvs;
         mesh.Optimize();
@@ -154,33 +149,30 @@ public class CreateFace : MonoBehaviour
         {
             r.material.color = yColor;
         }
+
         else if (color == "blue")
         {
             r.material.color = bColor;
         }
+
         else if (color == "red")
         {
             r.material.color = rColor;
         }
+
         else if (color == "cyan")
         {
             r.material.color = cColor;
-        }else if (color == "green")
+        }
+        
+        else if (color == "green")
         {
             r.material.color = grColor;
         }
+
         else
         {
             r.material.color = gColor;
         }
-
-
-
-    }
-
-
-    void Update()
-    {
-        
     }
 }

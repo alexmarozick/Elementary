@@ -1,214 +1,213 @@
 using System.Collections;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
 
-/*
- * Citing these tutorial as a souce
- * http://ilkinulas.github.io/development/unity/2016/04/30/cube-mesh-in-unity3d.html
- * http://ilkinulas.github.io/development/unity/2016/05/06/uv-mapping.html
- */
-
 public class CreateTerrain : MonoBehaviour
 {
+    public Transform player;
+    public GameObject terrain;
     public Vector3 TerrainOffset;
     public Vector3 TerrainSize;
+    bool connected, shift;
     public string color = "grey";
+    public string direction = "none";
 
-	void Start()
-	{
-		Create(TerrainOffset, TerrainSize);
-	}
+    string shiftto = "grey";
 
+    CreateFace script1;
 
-    Vector2[] Recolor(string c)
+    private Color yColor = new Color(0.914f,0.788f,0.263f); 
+    private Color rColor = new Color(0.871f, 0.376f, 0.141f);
+    private Color bColor = new Color(0.275f, 0.451f, 0.773f);
+    private Color gColor = new Color(0.545f, 0.545f, 0.545f);
+    private Color grColor = new Color(0.016f, 0.612f, 0.346f);
+    private Color cColor = new Color(0.604f, 0.914f, 0.961f);
+
+    void Start()
     {
-        Vector2[] uvs;
-        if (c == "blue")
-        {
-            uvs = new Vector2[] {
-                new Vector2(0, 0.50f),
-                new Vector2(0.25f, 0.50f),
-                new Vector2(0, 0.25f),
-                new Vector2(0.25f, 0.25f),
-
-                new Vector2(0.5f, 0.50f),
-                new Vector2(0.5f, 0.25f),
-                new Vector2(0.75f, 0.50f),
-                new Vector2(0.75f, 0.25f),
-
-                new Vector2(1, 0.50f),
-                new Vector2(1, 0.25f),
-
-                new Vector2(0.25f, 1),
-                new Vector2(0.5f, 1),
-
-                new Vector2(0.25f, 0),
-                new Vector2(0.5f, 0),
-            };
-
-        }
-        else if (c == "red")
-        {
-            uvs = new Vector2[] {
-                new Vector2(0, 1.0f),
-                new Vector2(0.25f, 1.0f),
-                //new Vector2(0, 0.75f),
-                //new Vector2(0.25f, 0.75f),
-
-                new Vector2(1, 0.75f),
-                new Vector2(1, 0.50f),
-
-                new Vector2(0.5f, 1.0f),
-                new Vector2(0.5f, 0.75f),
-                new Vector2(0.75f, 1.0f),
-                new Vector2(0.75f, 0.75f),
-
-                new Vector2(1, 1.0f),
-                new Vector2(1, 0.75f),
-
-                new Vector2(0.25f, 1),
-                new Vector2(0.5f, 1),
-
-                new Vector2(0.25f, 0),
-                new Vector2(0.5f, 0),
-            };
-        }
-        else if (c == "yellow")
-        {
-            uvs = new Vector2[] {
-                new Vector2(0, 0.75f),
-                new Vector2(0.25f, 0.75f),
-                new Vector2(0, 0.50f),
-                new Vector2(0.25f, 0.50f),
-
-                new Vector2(0.5f, 0.75f),
-                new Vector2(0.5f, 0.50f),
-                new Vector2(0.75f, 0.75f),
-                new Vector2(0.75f, 0.50f),
-
-                new Vector2(1, 0.75f),
-                new Vector2(1, 0.50f),
-
-                new Vector2(0.25f, 1),
-                new Vector2(0.5f, 1),
-
-                new Vector2(0.25f, 0),
-                new Vector2(0.5f, 0),
-            };
-        }
-        else
-        {
-
-            uvs = new Vector2[] {
-                new Vector2(0, 0.75f),
-                new Vector2(0.25f, 0.75f),
-                new Vector2(0, 0.50f),
-                new Vector2(0.25f, 0.50f),
-
-                new Vector2(0.5f, 0.75f),
-                new Vector2(0.5f, 0.50f),
-                new Vector2(0.75f, 0.75f),
-                new Vector2(0.75f, 0.50f),
-
-                new Vector2(0.5f, 1.0f),
-                new Vector2(0.5f, 0.75f),
-
-                new Vector2(0.25f, 1),
-                new Vector2(0.5f, 1),
-
-                new Vector2(0.25f, 0),
-                new Vector2(0.5f, 0),
-            };
-        }
-
-        return uvs;
+        shift = false;
+        
+        Create(color);    
     }
 
-    void Create(Vector3 offset, Vector3 cubescale)
+    public void Create(string co)
     {
+        color = co;
+        shiftto = color;
+
         float size = 1f;
 
-        float x = offset.x;
-        float y = offset.y;
-        float z = offset.z;
-        
         Vector3[] vertices = {
-            new Vector3(0, size, 0),
-			new Vector3(0, 0, 0),
-			new Vector3(size, size, 0),
-			new Vector3(size, 0, 0),
-
-			new Vector3(0, 0, size),
-			new Vector3(size, 0, size),
-			new Vector3(0, size, size),
-			new Vector3(size, size, size),
-
-			new Vector3(0, size, 0),
-			new Vector3(size, size, 0),
-
-			new Vector3(0, size, 0),
-			new Vector3(0, size, size),
-
-			new Vector3(size, size, 0),
-			new Vector3(size, size, size),
+            new Vector3(0, 0, size),
+            new Vector3(0, 0, 0),
+            new Vector3(size, 0, size),
+            new Vector3(size, 0, 0),
         };
 
         for (int i = 0; i < vertices.Length; i++)
         {
-            vertices[i].Scale(cubescale);
-            vertices[i] += offset;
+            vertices[i].Scale(TerrainSize);
+            vertices[i] += TerrainOffset;
         }
 
         int[] triangles = {
             0, 2, 1, // front
 			1, 2, 3,
-            4, 5, 6, // back
-			5, 7, 6,
-            6, 7, 8, //top
-			7, 9 ,8,
-            1, 3, 4, //bottom
-			3, 5, 4,
-            1, 11,10,// left
-			1, 4, 11,
-            3, 12, 5,//right
-			5, 12, 13
         };
 
+        Vector2[] uvs = new Vector2[] {
+                new Vector2(0, 0.50f),
+                new Vector2(0.25f, 0.50f),
+                new Vector2(0, 0.25f),
+                new Vector2(0.25f, 0.25f)
+        };
 
-
-        Vector2[] uvs = Recolor(color);
-
+        //Vector2[] uvs = Recolor(color);
 
         Mesh mesh = GetComponent<MeshFilter>().mesh;
 
         mesh.Clear();
-        
+
         mesh.vertices = vertices;
         mesh.triangles = triangles;
         mesh.uv = uvs;
+        MeshRenderer r = GetComponent<MeshRenderer>();
+
+        if (color == "yellow")
+        {
+            r.material.color = yColor;
+        }
+
+        else if (color == "blue")
+        {
+            r.material.color = bColor;
+        }
+
+        else if (color == "red")
+        {
+            r.material.color = rColor;
+        }
+
+        else if (color == "cyan")
+        {
+            r.material.color = cColor;
+        }
+
+        else if (color == "green")
+        {
+            r.material.color = grColor;
+        }
+
+        else
+        {
+            r.material.color = gColor;
+        }
+
+        //mesh.uv = uvs;
         mesh.Optimize();
-        
         mesh.RecalculateNormals();
     }
 
-    public void trying(string co)
+    public string GetColor()
     {
+        return color;
+    }
+    
+    //Method to change tile color
+    public void SetColor(string co)
+    {
+        MeshRenderer r = GetComponent<MeshRenderer>();
+
         color = co;
-        Create(TerrainOffset, TerrainSize);
+
+        if (color == "yellow")
+        {
+            r.material.color = yColor;
+        }
+
+        else if (color == "blue")
+        {
+            r.material.color = bColor;
+        }
+
+        else if (color == "red")
+        {
+            r.material.color = rColor;
+        }
+
+        else if (color == "cyan")
+        {
+            r.material.color = cColor;
+        }
+
+        else if (color == "green")
+        {
+            r.material.color = grColor;
+        }
+
+        else
+        {
+            r.material.color = gColor;
+        }
     }
 
-    public void Changetile(string co)
+
+    //Use this for the actual interactions. "co" refers to the color of the face it just intersected
+    void ColorEffect(string co)
     {
-        
+        if (color == "grey")
+        {
+            SetColor(co);
+        }
 
-        Mesh mesh = GetComponent<MeshFilter>().mesh;
-        
-        mesh.uv = Recolor(co);
-        mesh.Optimize();
+        else
+        {
+            SetColor(co);
+        }
+    }
 
-        mesh.RecalculateNormals();
+    void OnTriggerEnter(Collider other)
+    {
+        if (!connected & !shift)
+        {
+            if (other.CompareTag("Face"))
+            {
+                //Debug.Log("whoo");
+                script1 = (CreateFace)other.GetComponentInParent(typeof(CreateFace));
+                
+                if (script1 != null)
+                {
+                    //Debug.Log(script1.AskColor());
+                    
+                    if (script1.AskColor() != "travel")
+                    {
+                        connected = true;
+                        shift = true;
+                        shiftto = script1.AskColor();
+                    }
+                }
+            }
+        }  
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        //Debug.Log("left");
+        if (other.CompareTag("Face"))
+        {
+            connected = false;
+        }
+    }
+
+    void Update()
+    {
+        if (connected && shift)
+        {
+            ColorEffect(shiftto);
+            shift = false;
+        }
     }
 }
