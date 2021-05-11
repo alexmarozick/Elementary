@@ -6,19 +6,21 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
 
-public class CreateFace : MonoBehaviour
+public class Terrain2 : MonoBehaviour
 {
-    
+    public Transform player;
     public GameObject terrain;
     public Vector3 TerrainOffset;
     public Vector3 TerrainSize;
-
-    bool ready;
-
+    bool connected, shift;
     public string color = "grey";
-    
+    public string direction = "none";
 
-    private Color yColor = new Color(0.914f, 0.788f, 0.263f);
+    string shiftto = "grey";
+
+    CreateFace script1;
+
+    private Color yColor = new Color(0.914f,0.788f,0.263f); 
     private Color rColor = new Color(0.871f, 0.376f, 0.141f);
     private Color bColor = new Color(0.275f, 0.451f, 0.773f);
     private Color gColor = new Color(0.545f, 0.545f, 0.545f);
@@ -27,53 +29,21 @@ public class CreateFace : MonoBehaviour
 
     void Start()
     {
-        ready = true;
+        shift = false;
         
         Create(color);
-
-    }
-
-    public string AskColor()
-    {
-        //method for the tiles to check
-        if (ready)
-        {
-            return GetColor();
-        }
-        else
-        {
-            return "travel";
-        }
-    }
-
-    public string GetColor()
-    {
-        //used by Player cube when coordinating movement
-        return color;
-    }
-
-    public void Close()
-    {
-        //make unreadable by tiles
-        ready = false;
-    }
-
-    public void Open()
-    {
-        //make readable by tiles
-        ready = true;
+        
     }
 
     public void Create(string co)
     {
-        Debug.Log("created");
         color = co;
-        
+        shiftto = color;
 
 
         float size = 1f;
 
-
+        
 
         Vector3[] vertices = {
             new Vector3(0, 0, size),
@@ -125,10 +95,12 @@ public class CreateFace : MonoBehaviour
         else if (color == "red")
         {
             r.material.color = rColor;
-        }else if (color == "cyan")
+        }
+        else if (color == "cyan")
         {
             r.material.color = cColor;
-        }else if (color == "green")
+        }
+        else if (color == "green")
         {
             r.material.color = grColor;
         }
@@ -144,8 +116,15 @@ public class CreateFace : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
+    public string GetColor()
+    {
+        return color;
+    }
+    
+    //Method to change tile color
     public void SetColor(string co)
     {
+        
         MeshRenderer r = GetComponent<MeshRenderer>();
 
         color = co;
@@ -165,7 +144,8 @@ public class CreateFace : MonoBehaviour
         else if (color == "cyan")
         {
             r.material.color = cColor;
-        }else if (color == "green")
+        }
+        else if (color == "green")
         {
             r.material.color = grColor;
         }
@@ -179,8 +159,64 @@ public class CreateFace : MonoBehaviour
     }
 
 
-    void Update()
+    //Use this for the actual interactions. "co" refers to the color of the face it just intersected
+    void ColorEffect(string co)
     {
         
+        if(color == "grey")
+        {
+            SetColor(co);
+        }
+        else
+        {
+            SetColor(co);
+        }
+        
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(!connected & !shift)
+        {
+            if (other.CompareTag("Face"))
+            {
+                //Debug.Log("whoo");
+                script1 = (CreateFace)other.GetComponentInParent(typeof(CreateFace));
+                if (script1 != null)
+                {
+                    //Debug.Log(script1.AskColor());
+                    
+                    if(script1.AskColor() != "travel")
+                    {
+                        connected = true;
+                        shift = true;
+                        shiftto = script1.AskColor();
+                    }
+                    
+                }
+            }
+        }
+        
+        
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        //Debug.Log("left");
+        if (other.CompareTag("Face"))
+        {
+            connected = false;
+        }
+    }
+
+    void Update()
+    {
+        if (connected && shift)
+        {
+            
+            ColorEffect(shiftto);
+            shift = false;
+            
+        }
     }
 }
