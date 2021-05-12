@@ -9,6 +9,7 @@ public class FallDetect : MonoBehaviour
 {
     GameObject player;
     public GameOverScreen GameOverScreen;
+    //TODO count moves as we go and store in pointTotal
     int pointTotal = 0;
 
     // Start is called before the first frame update
