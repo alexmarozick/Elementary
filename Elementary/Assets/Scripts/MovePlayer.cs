@@ -375,7 +375,7 @@ public class MovePlayer : MonoBehaviour
             angle = x > 0 ? -90 : 90;
             direction = x > 0 ? Vector3.right : Vector3.left;
 
-            if (direction== Vector3.right)
+            if (direction == Vector3.right)
             {
                 current = "right";
             }
