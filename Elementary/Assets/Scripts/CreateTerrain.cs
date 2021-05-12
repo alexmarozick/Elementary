@@ -9,6 +9,7 @@ public class CreateTerrain : MonoBehaviour
 {
     public Transform player;
     public GameObject terrain;
+    public GameOverScreen gameover;
     public Vector3 TerrainOffset;
     public Vector3 TerrainSize;
     bool connected, shift;
@@ -154,15 +155,22 @@ public class CreateTerrain : MonoBehaviour
         }
     }
 
-
     //Use this for the actual interactions. "co" refers to the color of the face it just intersected
     void ColorEffect(string co)
-    {
-        if (color == "grey")
+    {        
+        // Blue extinguishes red, red burns green, and green absorbs blue
+        if ((color == "red" & co == "blue") | (color == "green" & co == "red") | (color == "blue" & co == "green"))
         {
-            SetColor(co);
+            SetColor("grey");
         }
 
+        // If the color of the terrain is red and it isn't blue, the player dies
+        else if (color == "red" & co != "blue")
+        {
+            gameover.Setup(0);
+        }
+
+        // If no interaction takes place, just change the color of the tile
         else
         {
             SetColor(co);
