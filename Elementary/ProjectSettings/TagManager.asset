@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Face
   - Tile
+  - Terrain
   layers:
   - Default
   - TransparentFX
