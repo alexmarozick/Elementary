@@ -114,6 +114,7 @@ public class CreateTerrain : MonoBehaviour
 
     public string GetColor()
     {
+        Debug.Log("where");
         return color;
     }
     

@@ -18,6 +18,15 @@ public class TerrainSystem : MonoBehaviour
         mesh.Clear();
     }
 
+    public bool Match(float x, float z)
+    {
+        if((x == transform.position.x) && (z == transform.position.z)){
+            return true;
+        }
+        return false;
+    }
+
+
     //currently only set to get the top facing color
     public string GetColor()
     {

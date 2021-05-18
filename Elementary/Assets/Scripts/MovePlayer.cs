@@ -20,9 +20,12 @@ public class MovePlayer : MonoBehaviour
     string current, previous;
     bool newsquare;
 
+
     public GameObject face1, face2, face3, face4, face5, face6;
+    public GameObject coordiante;
     CreateFace script1, script2, script3, script4, script5, script6;
     CreateTerrain scriptX;
+    IdentifyTile scriptI;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,7 @@ public class MovePlayer : MonoBehaviour
         script4 = (CreateFace)face4.GetComponent(typeof(CreateFace));
         script5 = (CreateFace)face5.GetComponent(typeof(CreateFace));
         script6 = (CreateFace)face6.GetComponent(typeof(CreateFace));
+        scriptI = (IdentifyTile)coordiante.GetComponent(typeof(IdentifyTile));
         newsquare = false;
     }
 
@@ -46,8 +50,9 @@ public class MovePlayer : MonoBehaviour
 
         if (newsquare)
         {
-            //CheckSquare();
+            
             newsquare = false;
+            CheckSquare();
         }
 
         if (!isRolling && ((x > InputThreshold || x < -InputThreshold) || (y > InputThreshold || y < -InputThreshold)))
@@ -81,33 +86,15 @@ public class MovePlayer : MonoBehaviour
         script6.Open();
     }
 
-    //idea is we use this to check the square beneath the tile the cube is one
+    //Check color of tile below before it responds to your tile. Initialize color effects
     public void CheckSquare()
     {
-        newsquare = false;
-
-        //this method only works on occassion? I'm not sure why as it seems to be sending it in the correct direction
-        //alternatively we could try a collider of some sort but that requires changing it's orientation as the cube does shenanigans
-
-        //Vector3 direction = player.position - transform.position + Vector3.up;
-        Vector3 direction = Vector3.down;
-        Ray ray = new Ray(transform.position, Vector3.down);
-        RaycastHit raycastHit;
-
-        if (Physics.Raycast(ray, out raycastHit))
-        {
-            Debug.Log(direction);
-            Debug.Log(transform.position);
-            //if ((raycastHit.collider.transform.parent != null) && raycastHit.collider.transform.CompareTag("Tile"))
-            if (raycastHit.collider.transform.CompareTag("Tile"))
-            {
-                //terrain.GetComponent<CreateTerrain>().trying("red");
-
-                //scriptX = (Terrain2)raycastHit.collider.transform.GetComponentInParent(typeof(Terrain2));
-                Debug.Log("it hit");
-            }
-        }
+        Debug.Log(scriptI.AskColor());
+        //for instance if color == cyan, trigger sliding
     }
+
+    
+    
 
     //Method is used to make tile color consistent
     public void AngleFix()
@@ -355,6 +342,30 @@ public class MovePlayer : MonoBehaviour
         }
     }
 
+    void MoveBox()
+    {
+
+        
+        if (current == "right")
+        {
+            coordiante.transform.position += new Vector3(1.0f, 0f, 0f);
+        }else if(current == "left")
+        {
+            coordiante.transform.position += new Vector3(-1.0f, 0f, 0f);
+        }
+        else if(current == "up")
+        {
+            coordiante.transform.position += new Vector3(0.0f, 0f, 1.0f);
+        }
+        else if(current == "down")
+        {
+            coordiante.transform.position += new Vector3(0.0f, 0f, -1.0f);
+        }
+
+        scriptI.GetTile();
+        
+    }
+
     IEnumerator RollingCube(float x, float y)
     {
         Close();
@@ -426,6 +437,8 @@ public class MovePlayer : MonoBehaviour
         transform.rotation = adjustRotation;
         AngleFix();
         isRolling = false;
+
+        MoveBox();
         Open();
         newsquare = true;
     }
