@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class MapSystem : MonoBehaviour
@@ -11,7 +12,7 @@ public class MapSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(transform.childCount);
+        //Debug.Log(transform.childCount);
         count = transform.childCount;
         mapspace = new TerrainSystem[count];
         for(int i = 0; i < count; i++)
@@ -22,26 +23,37 @@ public class MapSystem : MonoBehaviour
     }
 
 
+    int Find(float x, float z)
+    {
+        for (int j = 0; j < count; j++)
+        {
+            if (mapspace[j] != null)
+            {
+                if (mapspace[j].Match(x, z))
+                {
+                    return j;
+                }
+
+            }
+        }
+        return -1;
+    }
+
+
     //determine if the cube is on the same location as the tile
     public string FindTile(float x, float z)
     {
-        
+         int t = Find(x, z);
 
-        for(int j = 0; j < count; j++)
+         if(t < 0)
         {
-            if(mapspace[j] != null)
-            {
-                if(mapspace[j].Match(x, z))
-                {
-
-                    
-                    return mapspace[j].GetColor();
-                }
-            }
+            return "none";
         }
-
-
-        return "none";
+        else
+        {
+            return mapspace[t].GetColor();
+        }
+         
     }
 
     // Update is called once per frame

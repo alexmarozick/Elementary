@@ -99,6 +99,7 @@ MonoBehaviour:
   TerrainOffset: {x: -0.5, y: 0, z: -0.5}
   TerrainSize: {x: 1, y: 1, z: 1}
   color: blue
+  tracker: {fileID: 2421201872753812010, guid: 37c3c9ec4ab76534d94c7d8d537f7251, type: 3}
 --- !u!65 &1425857970628496987
 BoxCollider:
   m_ObjectHideFlags: 0

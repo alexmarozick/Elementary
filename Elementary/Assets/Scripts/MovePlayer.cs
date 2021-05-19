@@ -26,6 +26,7 @@ public class MovePlayer : MonoBehaviour
     CreateFace script1, script2, script3, script4, script5, script6;
     CreateTerrain scriptX;
     IdentifyTile scriptI;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -89,7 +90,10 @@ public class MovePlayer : MonoBehaviour
     //Check color of tile below before it responds to your tile. Initialize color effects
     public void CheckSquare()
     {
-        Debug.Log(scriptI.AskColor());
+        
+
+        string changecolor = scriptI.AskColor();
+        Debug.Log(changecolor);
         //for instance if color == cyan, trigger sliding
     }
 

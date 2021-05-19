@@ -48,7 +48,7 @@ public class IdentifyTile : MonoBehaviour
         {
             below = temp;
         }
-        Debug.Log(below);
+        //Debug.Log(below);
     }
 
     

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7056816502705686301}
   - component: {fileID: 7056816502705686302}
   m_Layer: 0
-  m_Name: planeDetect
+  m_Name: Detector
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,10 +48,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 6107872783253716942, guid: 0369c4782e17c7b45b91e24c2d416fac, type: 3}
   terrain: {fileID: 0}
+  gameover: {fileID: 0}
   TerrainOffset: {x: -0.5, y: 0, z: -0.5}
   TerrainSize: {x: 1, y: 1, z: 1}
   color: grey
   direction: none
+  tracker: {fileID: 2421201872753812010, guid: 37c3c9ec4ab76534d94c7d8d537f7251, type: 3}
 --- !u!23 &7056816502705686300
 MeshRenderer:
   m_ObjectHideFlags: 0

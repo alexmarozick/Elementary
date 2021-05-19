@@ -27,10 +27,18 @@ public class CreateTerrain : MonoBehaviour
     private Color grColor = new Color(0.016f, 0.612f, 0.346f);
     private Color cColor = new Color(0.604f, 0.914f, 0.961f);
 
+    public GameObject tracker;
+    private ColorTracker basecolor;
+
     void Start()
     {
         shift = false;
-        
+
+        if (tracker != null)
+        {
+            basecolor = (ColorTracker)tracker.GetComponent(typeof(ColorTracker));
+        }
+
         Create(color);    
     }
 
@@ -77,35 +85,7 @@ public class CreateTerrain : MonoBehaviour
         mesh.uv = uvs;
         MeshRenderer r = GetComponent<MeshRenderer>();
 
-        if (color == "yellow")
-        {
-            r.material.color = yColor;
-        }
-
-        else if (color == "blue")
-        {
-            r.material.color = bColor;
-        }
-
-        else if (color == "red")
-        {
-            r.material.color = rColor;
-        }
-
-        else if (color == "cyan")
-        {
-            r.material.color = cColor;
-        }
-
-        else if (color == "green")
-        {
-            r.material.color = grColor;
-        }
-
-        else
-        {
-            r.material.color = gColor;
-        }
+        r.material.color = basecolor.GetColor(color);
 
         //mesh.uv = uvs;
         mesh.Optimize();

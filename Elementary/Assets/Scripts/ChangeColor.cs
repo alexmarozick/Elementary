@@ -6,6 +6,9 @@ public class ChangeColor : MonoBehaviour
 {
     public string color = "yellow";
 
+    public GameObject tracker;
+    private ColorTracker basecolor;
+
     private ParticleSystem r;
     private Color yColor = new Color(0.914f, 0.788f, 0.263f);
     private Color rColor = new Color(0.871f, 0.376f, 0.141f);
@@ -16,6 +19,11 @@ public class ChangeColor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (tracker != null)
+        {
+            basecolor = (ColorTracker)tracker.GetComponent(typeof(ColorTracker));
+        }
+
         Recolor(color);
     }
 
@@ -26,29 +34,7 @@ public class ChangeColor : MonoBehaviour
         var ps = r.main;
         color = co;
 
-        if (color == "yellow")
-        {
-            ps.startColor = yColor;
-        }
-
-        else if (color == "blue")
-        {
-            ps.startColor = bColor;
-        }
-
-        else if (color == "red")
-        {
-            ps.startColor = rColor;
-        }
-
-        else if (color == "cyan")
-        {
-            ps.startColor = cColor;
-        }
-
-        else if (color == "green")
-        {
-            ps.startColor = gColor;
-        }
+        ps.startColor = basecolor.GetColor(color);
+        
     }
 }

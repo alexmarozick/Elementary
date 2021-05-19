@@ -16,15 +16,22 @@ public class PuzzleGate
     protected int time;
     public int countdown;
 
+    
+
     public GameObject square1, square2, square3, square4, square5, square6, square7, square8;
     protected TerrainSystem script1, script2, script3, script4, script5, script6, script7, script8;
+
 
 
     public PuzzleGate()
     {
         time = 0;
         locked = true;
-        if(square1 != null)
+
+        
+
+
+        if (square1 != null)
         {
             script1 = (TerrainSystem)square1.GetComponent(typeof(TerrainSystem));
         }
