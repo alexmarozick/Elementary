@@ -27,6 +27,16 @@ public class TerrainSystem : MonoBehaviour
     }
 
 
+    public float GetX()
+    {
+        return transform.position.x;
+    }
+
+    public float GetZ()
+    {
+        return transform.position.z;
+    }
+
     //currently only set to get the top facing color
     public string GetColor()
     {
