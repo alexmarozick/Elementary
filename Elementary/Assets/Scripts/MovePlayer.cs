@@ -56,8 +56,8 @@ public class MovePlayer : MonoBehaviour
             newsquare = false;
             CheckSquare();
         }
-
-        if (!isRolling && ((x > InputThreshold || x < -InputThreshold) || (y > InputThreshold || y < -InputThreshold)))
+        
+        if (!isRolling &&  ((x > InputThreshold || x < -InputThreshold) || (y > InputThreshold || y < -InputThreshold)))
         {
             // the translate is for sliding the cube
             // transform.Translate(Vector3.left * x * 10 * Time.deltaTime);
@@ -81,10 +81,15 @@ public class MovePlayer : MonoBehaviour
                 x = -y;
                 y = t;
             }
+
+
+            if(scriptI.CanMove(x, y))
+            {
+                isRolling = true;
+                StartCoroutine(RollingCube(x, y));
+            }
             
             
-            isRolling = true;
-            StartCoroutine(RollingCube(x, y));
         }
     }
 

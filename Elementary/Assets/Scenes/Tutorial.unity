@@ -11342,6 +11342,10 @@ PrefabInstance:
       propertyPath: coordiante
       value: 
       objectReference: {fileID: 1179115876}
+    - target: {fileID: 8433287538040048245, guid: ee610af0b5b5ddf44ac6a483373fd964, type: 3}
+      propertyPath: cameraobject
+      value: 
+      objectReference: {fileID: 1661343068}
     - target: {fileID: 8433287538040048247, guid: ee610af0b5b5ddf44ac6a483373fd964, type: 3}
       propertyPath: m_Mesh
       value: 

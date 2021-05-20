@@ -107,7 +107,7 @@ public class MapSystem : MonoBehaviour
                 return connects[connected[t][3]];
             }
         }
-        return false;
+        return true;
     }
 
     //for puzzlegates to remove locations
