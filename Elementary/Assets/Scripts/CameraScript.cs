@@ -10,30 +10,13 @@ public class CameraScript : MonoBehaviour
  
     void Update () {
  
-        // transform.position = transform.forward * distance + Player.position;
- 
-        // if (Input.GetKey (KeyCode.E)) {
- 
-        //     transform.RotateAround (Player.position, Vector3.up, 90);
-            
-        //     // will slowly rotate y
-        //     //transform.RotateAround (Player.position, Vector3.up, 90 * Time.deltaTime);
-
-        // }
-    }
- 
-    void FixedUpdate ()
-    {
-        // if you want a angle on your camera
-   
- 
-        if (Input.GetKey (KeyCode.E)) {
+        if (Input.GetKeyDown (KeyCode.E)) {
  
             transform.RotateAround (Player.position, Vector3.up, 90);
-            
-            // will slowly rotate y
-            //transform.RotateAround (Player.position, Vector3.up, 90 * Time.deltaTime);
+
+            //TODO change player orientation/input so it works with camera and player doesnt get disoriented
 
         }
     }
+ 
 }
