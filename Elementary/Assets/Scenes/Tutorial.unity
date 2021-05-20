@@ -2765,6 +2765,50 @@ PrefabInstance:
       objectReference: {fileID: 1416162307}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23c6a9c23bb3a624dbee3b366acdf27a, type: 3}
+--- !u!1 &1038036491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1038036493}
+  - component: {fileID: 1038036492}
+  m_Layer: 0
+  m_Name: Puzzle Master
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1038036492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038036491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5faea30d3b5e3044cad53d128a05aaad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Map: {fileID: 668491213}
+--- !u!4 &1038036493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038036491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.76881695, y: -0.057616353, z: 0.057668447}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1079320019
 PrefabInstance:
   m_ObjectHideFlags: 0
