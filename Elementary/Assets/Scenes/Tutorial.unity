@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4482476, g: 0.49827492, b: 0.57558435, a: 1}
+  m_IndirectSpecularColor: {r: 0.44824737, g: 0.49827468, b: 0.5755835, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1807,6 +1807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -1890,6 +1891,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -225, y: -116.51401, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c5c32cc96a1a848aff59651d28320c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 1661343070}
+  lightDistance: 10
 --- !u!1 &738612678
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,6 +2567,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2658,6 +2674,20 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b90a23861c073744ad85039c55c2938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 0
+  Player: {fileID: 1574270242}
 --- !u!1001 &974529083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4806,6 +4836,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1661343070}
   - component: {fileID: 1661343069}
+  - component: {fileID: 1661343071}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -4863,6 +4894,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -215, y: -135, z: 180}
+--- !u!114 &1661343071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661343068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b90a23861c073744ad85039c55c2938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 0
+  Player: {fileID: 1574270242}
 --- !u!1001 &1701340914
 PrefabInstance:
   m_ObjectHideFlags: 0
