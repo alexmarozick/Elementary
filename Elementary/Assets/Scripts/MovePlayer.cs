@@ -22,11 +22,11 @@ public class MovePlayer : MonoBehaviour
 
 
     public GameObject face1, face2, face3, face4, face5, face6;
-    public GameObject coordiante;
+    public GameObject coordiante, cameraobject;
     CreateFace script1, script2, script3, script4, script5, script6;
     CreateTerrain scriptX;
     IdentifyTile scriptI;
-    
+    CameraScript scriptC;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +40,7 @@ public class MovePlayer : MonoBehaviour
         script5 = (CreateFace)face5.GetComponent(typeof(CreateFace));
         script6 = (CreateFace)face6.GetComponent(typeof(CreateFace));
         scriptI = (IdentifyTile)coordiante.GetComponent(typeof(IdentifyTile));
+        scriptC = (CameraScript)cameraobject.GetComponent(typeof(CameraScript));
         newsquare = false;
     }
 
@@ -60,6 +61,28 @@ public class MovePlayer : MonoBehaviour
         {
             // the translate is for sliding the cube
             // transform.Translate(Vector3.left * x * 10 * Time.deltaTime);
+
+            int direct = scriptC.GetDirection();
+            if (direct == 0)
+            {
+
+            } else if (direct == 2)
+            {
+                x = -x;
+                y = -y;
+            } else if (direct == 1)
+            {
+                float t = x;
+                x = y;
+                y = -t;
+            } else if (direct == 3)
+            {
+                float t = x;
+                x = -y;
+                y = t;
+            }
+            
+            
             isRolling = true;
             StartCoroutine(RollingCube(x, y));
         }
