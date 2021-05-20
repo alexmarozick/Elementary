@@ -37,13 +37,14 @@ public class IdentifyTile : MonoBehaviour
     //return color
     public string AskColor()
     {
+        
         return below;
     }
 
     //get the tile color below before it changes from being landed on
     public void GetTile()
     {
-        string temp = scriptM.FindTile(transform.position.x, transform.position.z);
+        string temp = scriptM.FindTile(transform.position.x, transform.position.z, transform.position.y);
         if(temp != "none")
         {
             below = temp;

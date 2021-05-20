@@ -45,25 +45,26 @@ public class MapSystem : MonoBehaviour
             {
                 float x2 = mapspace[j].GetX();
                 float z2 = mapspace[j].GetZ();
+                float y2 = mapspace[j].GetY();
 
                 int t;
                 //NESW
-                t = Find(x2, z2 + 1.0f);
+                t = Find(x2, z2 + 1.0f, y2);
                 if(t >= 0)
                 {
                     connected[j][0] = t;
                 }
-                t = Find(x2 + 1.0f, z2);
+                t = Find(x2 + 1.0f, z2, y2);
                 if (t >= 0)
                 {
                     connected[j][1] = t;
                 }
-                t = Find(x2, z2 - 1.0f);
+                t = Find(x2, z2 - 1.0f, y2);
                 if (t >= 0)
                 {
                     connected[j][2] = t;
                 }
-                t = Find(x2 - 1.0f, z2);
+                t = Find(x2 - 1.0f, z2, y2);
                 if (t >= 0)
                 {
                     connected[j][3] = t;
@@ -74,9 +75,9 @@ public class MapSystem : MonoBehaviour
     }
 
     //player use this to check if they can move in that direction
-    public bool CanMove(float x, float z, string direction)
+    public bool CanMove(float x, float z, float y, string direction)
     {
-        int t = Find(x, z);
+        int t = Find(x, z, y - 1.0f);
         if (direction == "north")
         {
             if(connected[t][0] >= 0)
@@ -110,9 +111,9 @@ public class MapSystem : MonoBehaviour
     }
 
     //for puzzlegates to remove locations
-    void StrikeOut(float x, float z)
+    void StrikeOut(float x, float z, float y)
     {
-        int t = Find(x, z);
+        int t = Find(x, z, y);
         if(t >= 0)
         {
             connects[t] = false;
@@ -121,13 +122,13 @@ public class MapSystem : MonoBehaviour
     }
 
      //internal method for finding the right tile
-    int Find(float x, float z)
+    int Find(float x, float z, float y)
     {
         for (int j = 0; j < count; j++)
         {
             if (mapspace[j] != null)
             {
-                if (mapspace[j].Match(x, z))
+                if (mapspace[j].Match(x, z, y))
                 {
                     return j;
                 }
@@ -139,9 +140,10 @@ public class MapSystem : MonoBehaviour
 
 
     //determine the color of the tile beneath the player
-    public string FindTile(float x, float z)
+    public string FindTile(float x, float z, float y)
     {
-        int t = Find(x, z);
+        int t = Find(x, z, y - 1.0f);
+
         
         
          
@@ -151,6 +153,16 @@ public class MapSystem : MonoBehaviour
         }
         else
         {
+            /*int zz = 0;
+            for (int j = 0; j < 4; j++)
+            {
+                if (connected[t][j] >= 0)
+                {
+                    zz += 1;
+                }
+                
+            }
+            Debug.Log(zz);*/
             return mapspace[t].GetColor();
         }
          

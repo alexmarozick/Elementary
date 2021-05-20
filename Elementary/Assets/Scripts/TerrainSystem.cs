@@ -18,9 +18,10 @@ public class TerrainSystem : MonoBehaviour
         mesh.Clear();
     }
 
-    public bool Match(float x, float z)
+    public bool Match(float x, float z, float y)
     {
-        if((x == transform.position.x) && (z == transform.position.z)){
+        if((x == transform.position.x) && (z == transform.position.z) && (y == transform.position.y))
+        {
             return true;
         }
         return false;
@@ -30,6 +31,11 @@ public class TerrainSystem : MonoBehaviour
     public float GetX()
     {
         return transform.position.x;
+    }
+
+    public float GetY()
+    {
+        return transform.position.y;
     }
 
     public float GetZ()
