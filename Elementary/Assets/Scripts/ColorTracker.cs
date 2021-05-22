@@ -11,7 +11,8 @@ public class ColorTracker : MonoBehaviour
     private Color gColor = new Color(0.545f, 0.545f, 0.545f);
     private Color grColor = new Color(0.016f, 0.612f, 0.346f);
     private Color cColor = new Color(0.604f, 0.914f, 0.961f);
-
+    private Color blaColor = new Color(0.125f, 0.125f, 0.125f);
+    private Color vColor = new Color(0.506f, 0.263f, 0.733f);
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,19 @@ public class ColorTracker : MonoBehaviour
             return grColor;
         }
 
-        else
+        else if (name == "supergrey")
+        {
+            return gColor;
+        }
+        else if (name == "black")
+        {
+            return blaColor;
+        }
+        else if(name == "violet")
+        {
+            return vColor;
+        }
+        else 
         {
             return gColor;
         }

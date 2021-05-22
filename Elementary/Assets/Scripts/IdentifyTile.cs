@@ -12,15 +12,22 @@ public class IdentifyTile : MonoBehaviour
 
     string below = "grey";
 
+    string setcolor = "nocolor";
+
     CreateTerrain script1;
     public GameObject map;
     MapSystem scriptM;
+    public GameObject pickupmap;
+    PickupSystem scriptP;
 
     // Start is called before the first frame update
     void Start()
     {
         ready = false;
         scriptM = (MapSystem)map.GetComponent(typeof(MapSystem));
+
+        scriptP = (PickupSystem)pickupmap.GetComponent(typeof(PickupSystem));
+
     }
 
     public void Unlock()
@@ -83,9 +90,28 @@ public class IdentifyTile : MonoBehaviour
         {
             below = temp;
         }
+
+        setcolor = scriptP.CheckColor(transform.position.x, transform.position.z);
+
         //Debug.Log(below);
     }
 
+
+    public bool NewColor()
+    {
+        if(setcolor == "nocolor")
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public string GetColor()
+    {
+        string temp = setcolor;
+        setcolor = "nocolor";
+        return temp;
+    }
     
 
     // Update is called once per frame

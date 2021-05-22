@@ -125,7 +125,24 @@ public class MovePlayer : MonoBehaviour
         //for instance if color == cyan, trigger sliding
     }
 
-    
+    void SetColor(string newcolor)
+    {
+        if(current == "right")
+        {
+            script3.SetColor(newcolor);
+        }else if (current == "left")
+        {
+            script4.SetColor(newcolor);
+        }
+        else if(current == "up")
+        {
+            script1.SetColor(newcolor);
+        }
+        else
+        {
+            script6.SetColor(newcolor);
+        }
+    }
     
 
     //Method is used to make tile color consistent
@@ -395,7 +412,11 @@ public class MovePlayer : MonoBehaviour
         }
 
         scriptI.GetTile();
-        
+
+        if (scriptI.NewColor())
+        {
+            SetColor(scriptI.GetColor());
+        }
     }
 
     IEnumerator RollingCube(float x, float y)
