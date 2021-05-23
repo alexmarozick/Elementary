@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class PuzzleGate
+public class PuzzleGate : MonoBehaviour
 {
     //meant as a parent class
-    public string name;
+    public string name2;
 
     protected bool locked;
 
@@ -20,15 +20,41 @@ public class PuzzleGate
 
     public GameObject square1, square2, square3, square4, square5, square6, square7, square8;
     protected TerrainSystem script1, script2, script3, script4, script5, script6, script7, script8;
+    public GameObject tracker;
+    protected ColorTracker basecolor;
+    public GameObject master;
+    protected PuzzleSystem puzzleboss;
+
+    protected Animator m_Animator;
 
 
-
-    public PuzzleGate()
+    public virtual void Start()
     {
         time = 0;
         locked = true;
 
-        
+        m_Animator = gameObject.GetComponent<Animator>();
+
+
+        if (tracker != null)
+        {
+            
+            basecolor = (ColorTracker)tracker.GetComponent(typeof(ColorTracker));
+            if(basecolor == null)
+            {
+                Debug.Log("not in color");
+            }
+        }
+
+        if (master != null)
+        {
+            puzzleboss = (PuzzleSystem)master.GetComponent(typeof(PuzzleSystem));
+            if(puzzleboss == null)
+            {
+                Debug.Log("why though");
+            }
+        }
+
 
 
         if (square1 != null)
@@ -63,12 +89,47 @@ public class PuzzleGate
         {
             script8 = (TerrainSystem)square8.GetComponent(typeof(TerrainSystem));
         }
+
+        //Additional();
+    }
+    
+    public float GetX()
+    {
+        return transform.position.x;
+    }
+    public float GetY()
+    {
+        return transform.position.y;
+    }
+    public float GetZ()
+    {
+        return transform.position.z;
     }
 
-    int MatchColor(string a)
+
+    protected void Repair()
     {
+        if(puzzleboss != null)
+        {
+            
+            puzzleboss.Repair(transform.position.x, transform.position.z, transform.position.y - 1.0f);
+        }
+    }
+
+
+
+    protected void  Additional()
+    {
+
+    }
+
+    protected int MatchColor(string a)
+    {
+        
+        
         if(a == color)
         {
+            
             return 1;
         }
         else
@@ -78,22 +139,22 @@ public class PuzzleGate
     }
 
     //for puzzle effects that keep occurring constantly
-    void AmbientPuzzleOn()
+    protected virtual void AmbientPuzzleOn()
     {
-
+        
     }
-    void AmbientPuzzleOff()
+    protected void AmbientPuzzleOff()
     {
 
     }
 
     //for puzzle effects that occur more often and are fancier
-    void TriggerPuzzle()
+    protected void TriggerPuzzle()
     {
 
     }
 
-    void Update()
+    protected void Update()
     {
         if (locked)
         {
@@ -143,39 +204,44 @@ public class PuzzleGate
         int count = 0;
         if (square1 != null)
         {
+            
             count += MatchColor(script1.GetColor());
         }
         if (square2 != null)
         {
-            count += MatchColor(script1.GetColor());
+            
+            count += MatchColor(script2.GetColor());
         }
         if (square3 != null)
         {
-            count += MatchColor(script1.GetColor());
+            count += MatchColor(script3.GetColor());
         }
         if (square4 != null)
         {
-            count += MatchColor(script1.GetColor());
+            count += MatchColor(script4.GetColor());
         }
         if (square5 != null)
         {
-            count += MatchColor(script1.GetColor());
+            count += MatchColor(script5.GetColor());
         }
         if (square6 != null)
         {
-            count += MatchColor(script1.GetColor());
+            count += MatchColor(script6.GetColor());
         }
         if (square7 != null)
         {
-            count += MatchColor(script1.GetColor());
+            count += MatchColor(script7.GetColor());
         }
         if (square8 != null)
         {
-            count += MatchColor(script1.GetColor());
+            count += MatchColor(script8.GetColor());
         }
 
-        if(count > amount)
+        
+
+        if(count >= amount)
         {
+            
             return true;
         }
         else
@@ -183,4 +249,6 @@ public class PuzzleGate
             return false;
         }
     }
+
+
 }

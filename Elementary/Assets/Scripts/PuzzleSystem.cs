@@ -25,9 +25,14 @@ public class PuzzleSystem : MonoBehaviour
         {
             
             GameObject ci = this.gameObject.transform.GetChild(i).gameObject;
-            //locks[i] = (PuzzleGate)ci.GetComponent(typeof(PuzzleGate));
+            locks[i] = (PuzzleGate)ci.GetComponent(typeof(PuzzleGate));
         }
         
+    }
+
+    public void Repair(float x, float z, float y)
+    {
+        ScriptM.Repair(x, z, y);
     }
 
 
@@ -35,7 +40,8 @@ public class PuzzleSystem : MonoBehaviour
     {
         for(int i = 0; i < count; i++)
         {
-            //ScriptM.StrikeOut(locks[i].GetX, locks[i].GetZ, locks[i].GetY - 1.0f)
+            Debug.Log("objectsjkl");
+            ScriptM.StrikeOut(locks[i].GetX(), locks[i].GetZ(), locks[i].GetY() - 1.0f);
         }
     }
 

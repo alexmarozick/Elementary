@@ -110,12 +110,25 @@ public class MapSystem : MonoBehaviour
         return true;
     }
 
-    //for puzzlegates to remove locations
-    void StrikeOut(float x, float z, float y)
+    //for puzzlegates to replace locations
+    public void Repair(float x, float z, float y)
     {
+        int t = Find(x, z, y);
+        if (t >= 0)
+        {
+            connects[t] = true;
+        }
+
+    }
+
+    //for puzzlegates to remove locations
+    public void StrikeOut(float x, float z, float y)
+    {
+        
         int t = Find(x, z, y);
         if(t >= 0)
         {
+            
             connects[t] = false;
         }
         
