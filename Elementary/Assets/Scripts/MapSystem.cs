@@ -32,6 +32,7 @@ public class MapSystem : MonoBehaviour
             
             GameObject ci = this.gameObject.transform.GetChild(i).gameObject;
             mapspace[i] = (TerrainSystem)ci.GetComponent(typeof(TerrainSystem));
+            
         }
 
         TilePaths();
@@ -124,7 +125,7 @@ public class MapSystem : MonoBehaviour
     //for puzzlegates to remove locations
     public void StrikeOut(float x, float z, float y)
     {
-        
+        Debug.Log("strike");
         int t = Find(x, z, y);
         if(t >= 0)
         {
@@ -147,6 +148,7 @@ public class MapSystem : MonoBehaviour
                 }
 
             }
+            
         }
         return -1;
     }
@@ -155,6 +157,7 @@ public class MapSystem : MonoBehaviour
     //determine the color of the tile beneath the player
     public string FindTile(float x, float z, float y)
     {
+        //Debug.Log(x + ", " + z + ", " + y);
         int t = Find(x, z, y - 1.0f);
 
         

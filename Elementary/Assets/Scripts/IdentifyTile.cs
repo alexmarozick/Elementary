@@ -52,6 +52,7 @@ public class IdentifyTile : MonoBehaviour
         string temp = scriptM.FindTile(transform.position.x, transform.position.z, transform.position.y);
         if (temp == "none")
         {
+            //Debug.Log("failed");
             return false;
         }
         string i = "north";

@@ -82,7 +82,7 @@ public class MovePlayer : MonoBehaviour
                 y = t;
             }
 
-
+            
             if(scriptI.CanMove(x, y))
             {
                 isRolling = true;
