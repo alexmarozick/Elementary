@@ -8,7 +8,7 @@ using UnityEngine;
 public class FallDetect : MonoBehaviour
 {
     GameObject player;
-    public GameOverScreen GameOverScreen;
+    public ResultScreen GameOverScreen;
     //TODO count moves as we go and store in pointTotal
     int pointTotal = 0;
 

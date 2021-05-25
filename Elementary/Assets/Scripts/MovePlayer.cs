@@ -22,7 +22,7 @@ public class MovePlayer : MonoBehaviour
 
 
     public GameObject face1, face2, face3, face4, face5, face6;
-    public GameObject coordiante, cameraobject;
+    public GameObject coordinate, cameraobject;
     CreateFace script1, script2, script3, script4, script5, script6;
     CreateTerrain scriptX;
     IdentifyTile scriptI;
@@ -39,7 +39,7 @@ public class MovePlayer : MonoBehaviour
         script4 = (CreateFace)face4.GetComponent(typeof(CreateFace));
         script5 = (CreateFace)face5.GetComponent(typeof(CreateFace));
         script6 = (CreateFace)face6.GetComponent(typeof(CreateFace));
-        scriptI = (IdentifyTile)coordiante.GetComponent(typeof(IdentifyTile));
+        scriptI = (IdentifyTile)coordinate.GetComponent(typeof(IdentifyTile));
         scriptC = (CameraScript)cameraobject.GetComponent(typeof(CameraScript));
         newsquare = false;
     }
@@ -397,18 +397,18 @@ public class MovePlayer : MonoBehaviour
         
         if (current == "right")
         {
-            coordiante.transform.position += new Vector3(1.0f, 0f, 0f);
+            coordinate.transform.position += new Vector3(1.0f, 0f, 0f);
         }else if(current == "left")
         {
-            coordiante.transform.position += new Vector3(-1.0f, 0f, 0f);
+            coordinate.transform.position += new Vector3(-1.0f, 0f, 0f);
         }
         else if(current == "up")
         {
-            coordiante.transform.position += new Vector3(0.0f, 0f, 1.0f);
+            coordinate.transform.position += new Vector3(0.0f, 0f, 1.0f);
         }
         else if(current == "down")
         {
-            coordiante.transform.position += new Vector3(0.0f, 0f, -1.0f);
+            coordinate.transform.position += new Vector3(0.0f, 0f, -1.0f);
         }
 
         scriptI.GetTile();

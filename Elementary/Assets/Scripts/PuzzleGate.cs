@@ -6,8 +6,6 @@ using UnityEngine.PlayerLoop;
 public class PuzzleGate : MonoBehaviour
 {
     //meant as a parent class
-    public string name2;
-
     protected bool locked;
 
     public int amount;
@@ -15,8 +13,6 @@ public class PuzzleGate : MonoBehaviour
 
     protected int time;
     public int countdown;
-
-    
 
     public GameObject square1, square2, square3, square4, square5, square6, square7, square8;
     protected TerrainSystem script1, script2, script3, script4, script5, script6, script7, script8;
@@ -204,12 +200,10 @@ public class PuzzleGate : MonoBehaviour
         int count = 0;
         if (square1 != null)
         {
-            
             count += MatchColor(script1.GetColor());
         }
         if (square2 != null)
         {
-            
             count += MatchColor(script2.GetColor());
         }
         if (square3 != null)
@@ -235,9 +229,7 @@ public class PuzzleGate : MonoBehaviour
         if (square8 != null)
         {
             count += MatchColor(script8.GetColor());
-        }
-
-        
+        } 
 
         if(count >= amount)
         {

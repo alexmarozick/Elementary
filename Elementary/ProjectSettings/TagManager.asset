@@ -8,6 +8,7 @@ TagManager:
   - Tile
   - Terrain
   - Identify
+  - Switch
   layers:
   - Default
   - TransparentFX

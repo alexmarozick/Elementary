@@ -9,7 +9,7 @@ public class CreateTerrain : MonoBehaviour
 {
     public Transform player;
     public GameObject terrain;
-    public GameOverScreen gameover;
+    public ResultScreen gameover;
     public Vector3 TerrainOffset;
     public Vector3 TerrainSize;
     bool connected, shift;

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class IdentifyTile : MonoBehaviour
 {
-
-
     bool ready;
     public string color = "grey";
     public string direction = "none";

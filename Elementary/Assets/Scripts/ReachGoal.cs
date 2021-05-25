@@ -7,7 +7,7 @@ public class ReachGoal : MonoBehaviour
     public Transform player;
     public GameObject terrain;
     bool connected;
-    public VictoryScreen victoryscreen;
+    public ResultScreen victoryscreen;
 
     void OnTriggerEnter(Collider other)
     {
