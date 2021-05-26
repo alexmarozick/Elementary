@@ -151,6 +151,12 @@ public class CreateTerrain : MonoBehaviour
             gameover.Setup(0);
         }
 
+        // Grey never replaces a color
+        else if (co == "grey")
+        {
+            SetColor(color);
+        }
+
         // If no interaction takes place, just change the color of the tile
         else
         {
