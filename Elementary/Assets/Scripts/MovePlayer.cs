@@ -19,7 +19,7 @@ public class MovePlayer : MonoBehaviour
     float scale;
     string current, previous;
     bool newsquare;
-
+    int canroll = 4;
 
     public GameObject face1, face2, face3, face4, face5, face6;
     public GameObject coordinate, cameraobject;
@@ -57,7 +57,7 @@ public class MovePlayer : MonoBehaviour
             CheckSquare();
         }
         
-        if (!isRolling &&  ((x > InputThreshold || x < -InputThreshold) || (y > InputThreshold || y < -InputThreshold)))
+        if ((canroll == 4)&& !isRolling &&  ((x > InputThreshold || x < -InputThreshold) || (y > InputThreshold || y < -InputThreshold)))
         {
             // the translate is for sliding the cube
             // transform.Translate(Vector3.left * x * 10 * Time.deltaTime);
@@ -86,9 +86,18 @@ public class MovePlayer : MonoBehaviour
             if(scriptI.CanMove(x, y))
             {
                 isRolling = true;
+                canroll = 0;
                 StartCoroutine(RollingCube(x, y));
             }
             
+            
+        }
+        if (!isRolling)
+        {
+            if(canroll < 4)
+            {
+                canroll += 1;
+            }
             
         }
     }

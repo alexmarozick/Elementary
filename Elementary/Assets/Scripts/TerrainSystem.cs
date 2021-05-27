@@ -20,7 +20,7 @@ public class TerrainSystem : MonoBehaviour
 
     public bool Match(float x, float z, float y)
     {
-        if((x == transform.position.x) && (z == transform.position.z) && (y == transform.position.y))
+        if((x < transform.position.x + 0.1f) && (z < transform.position.z + 0.1f) && (y < transform.position.y + 0.1f)&& (x > transform.position.x - 0.1f) && (z > transform.position.z - 0.1f) && (y > transform.position.y - 0.1f))
         {
             return true;
         }

@@ -70,6 +70,19 @@ public class MapSystem : MonoBehaviour
                 {
                     connected[j][3] = t;
                 }
+
+                t = Find(x2, z2, y2 + 1.0f);
+
+                if(t >= 0)
+                {
+                    connects[j] = false;
+                }
+                t = Find(x2, z2, y2 - 1.0f);
+
+                if (t >= 0)
+                {
+                    connects[t] = false;
+                }
             }
         }
 
