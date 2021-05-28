@@ -83,32 +83,33 @@ public class TerrainSystem : MonoBehaviour
 
     public string GetColor(string direction)
     {
+        
         if (direction == "up")
         {
-            script6.GetColor();
+            return script1.GetColor();
         }
         else if (direction == "down")
         {
-            script1.GetColor();
+            return script6.GetColor();
         }
         else if (direction == "north")
         {
-            script4.GetColor();
+            return script2.GetColor();
         }
         else if (direction == "east")
         {
-            script5.GetColor();
+            return script3.GetColor();
         }
         else if (direction == "south")
         {
-            script2.GetColor();
+            return script4.GetColor();
         }
         else if (direction == "west")
         {
-            script3.GetColor();
+            return script5.GetColor();
         }
 
-
+        
         return script1.GetColor();
     }
 }

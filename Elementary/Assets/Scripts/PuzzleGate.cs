@@ -13,7 +13,7 @@ public class PuzzleGate : MonoBehaviour
 
     protected int time;
     public int countdown;
-
+    public string Directions = "UUUUUUUU";
     public GameObject square1, square2, square3, square4, square5, square6, square7, square8;
     protected TerrainSystem script1, script2, script3, script4, script5, script6, script7, script8;
     public GameObject tracker;
@@ -21,8 +21,41 @@ public class PuzzleGate : MonoBehaviour
     public GameObject master;
     protected PuzzleSystem puzzleboss;
 
+    
+    
+
     protected Animator m_Animator;
 
+
+    string Translate(char i)
+    {
+        if( i == 'U')
+        {
+            return "up";
+        }else if (i == 'N')
+        {
+            return "north";
+        }
+        else if (i == 'E')
+        {
+            return "east";
+        }
+        else if (i == 'S')
+        {
+            return "south";
+        }
+        else if (i == 'W')
+        {
+            return "west";
+        }
+        else if (i == 'D')
+        {
+            return "up";
+        }
+        Debug.Log("missed");
+        return "up";
+        
+    }
 
     public virtual void Start()
     {
@@ -200,35 +233,35 @@ public class PuzzleGate : MonoBehaviour
         int count = 0;
         if (square1 != null)
         {
-            count += MatchColor(script1.GetColor());
+            count += MatchColor(script1.GetColor(Translate(Directions[0])));
         }
         if (square2 != null)
         {
-            count += MatchColor(script2.GetColor());
+            count += MatchColor(script2.GetColor(Translate(Directions[1])));
         }
         if (square3 != null)
         {
-            count += MatchColor(script3.GetColor());
+            count += MatchColor(script3.GetColor(Translate(Directions[2])));
         }
         if (square4 != null)
         {
-            count += MatchColor(script4.GetColor());
+            count += MatchColor(script4.GetColor(Translate(Directions[3])));
         }
         if (square5 != null)
         {
-            count += MatchColor(script5.GetColor());
+            count += MatchColor(script5.GetColor(Translate(Directions[4])));
         }
         if (square6 != null)
         {
-            count += MatchColor(script6.GetColor());
+            count += MatchColor(script6.GetColor(Translate(Directions[5])));
         }
         if (square7 != null)
         {
-            count += MatchColor(script7.GetColor());
+            count += MatchColor(script7.GetColor(Translate(Directions[6])));
         }
         if (square8 != null)
         {
-            count += MatchColor(script8.GetColor());
+            count += MatchColor(script8.GetColor(Translate(Directions[7])));
         } 
 
         if(count >= amount)
