@@ -57,7 +57,7 @@ public class MovePlayer : MonoBehaviour
             CheckSquare();
         }
         
-        if ((canroll == 3)&& !isRolling &&  ((x > InputThreshold || x < -InputThreshold) || (y > InputThreshold || y < -InputThreshold)))
+        if ((canroll == 3)&& !isRolling &&  (((x > InputThreshold || x < -InputThreshold) && y ==0) || (x == 0 && (y > InputThreshold || y < -InputThreshold))))
         {
             // the translate is for sliding the cube
             // transform.Translate(Vector3.left * x * 10 * Time.deltaTime);
