@@ -19,7 +19,7 @@ public class MovePlayer : MonoBehaviour
     float scale;
     string current, previous;
     bool newsquare;
-    int canroll = 4;
+    int canroll = 3;
 
     public GameObject face1, face2, face3, face4, face5, face6;
     public GameObject coordinate, cameraobject;
@@ -49,7 +49,7 @@ public class MovePlayer : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
-
+        
         if (newsquare)
         {
             
@@ -57,7 +57,7 @@ public class MovePlayer : MonoBehaviour
             CheckSquare();
         }
         
-        if ((canroll == 4)&& !isRolling &&  ((x > InputThreshold || x < -InputThreshold) || (y > InputThreshold || y < -InputThreshold)))
+        if ((canroll == 3)&& !isRolling &&  ((x > InputThreshold || x < -InputThreshold) || (y > InputThreshold || y < -InputThreshold)))
         {
             // the translate is for sliding the cube
             // transform.Translate(Vector3.left * x * 10 * Time.deltaTime);
@@ -91,10 +91,11 @@ public class MovePlayer : MonoBehaviour
             }
             
             
+            
         }
         if (!isRolling)
         {
-            if(canroll < 4)
+            if(canroll < 3)
             {
                 canroll += 1;
             }
@@ -129,27 +130,36 @@ public class MovePlayer : MonoBehaviour
     {
         
 
-        string changecolor = scriptI.AskColor();
-        Debug.Log(changecolor);
+        string changecolor = scriptI.AskColor("down");
+        changecolor = scriptI.AskColor("north");
+        changecolor = scriptI.AskColor("west");
+        changecolor = scriptI.AskColor("south");
+        changecolor = scriptI.AskColor("east");
+
         //for instance if color == cyan, trigger sliding
     }
 
-    void SetColor(string newcolor)
+    void SetColor(string direction, string newcolor)
     {
-        if(current == "right")
+        if (direction == "down")
         {
-            script3.SetColor(newcolor);
-        }else if (current == "left")
-        {
-            script4.SetColor(newcolor);
-        }
-        else if(current == "up")
-        {
-            script1.SetColor(newcolor);
-        }
-        else
-        {
-            script6.SetColor(newcolor);
+            
+            if (current == "right")
+            {
+                script3.SetColor(newcolor);
+            }
+            else if (current == "left")
+            {
+                script4.SetColor(newcolor);
+            }
+            else if (current == "up")
+            {
+                script1.SetColor(newcolor);
+            }
+            else
+            {
+                script6.SetColor(newcolor);
+            }
         }
     }
     
@@ -400,6 +410,26 @@ public class MovePlayer : MonoBehaviour
         }
     }
 
+    void PassColors()
+    {
+        Debug.Log(current);
+        if (current == "right")
+        {
+            scriptI.PassColor(script3.GetColor(), script2.GetColor(), script6.GetColor(), script5.GetColor(), script1.GetColor());
+        }else if (current == "left")
+        {
+            scriptI.PassColor(script4.GetColor(), script5.GetColor(), script6.GetColor(), script2.GetColor(), script1.GetColor());
+        }
+        else if (current == "up")
+        {
+            scriptI.PassColor(script1.GetColor(), script3.GetColor(), script5.GetColor(), script4.GetColor(), script2.GetColor());
+        }
+        else if (current == "down")
+        {
+            scriptI.PassColor(script6.GetColor(), script3.GetColor(), script2.GetColor(), script4.GetColor(), script5.GetColor());
+        }
+    }
+
     void MoveBox()
     {
 
@@ -424,12 +454,14 @@ public class MovePlayer : MonoBehaviour
 
         if (scriptI.NewColor())
         {
-            SetColor(scriptI.GetColor());
+            SetColor("down", scriptI.GetColor());
         }
     }
 
     IEnumerator RollingCube(float x, float y)
     {
+        Debug.Log("Roll");
+        
         Close();
         previous = current;
         float elapsed = 0.0f;
@@ -502,6 +534,7 @@ public class MovePlayer : MonoBehaviour
 
         MoveBox();
         Open();
+        PassColors();
         newsquare = true;
     }
 }

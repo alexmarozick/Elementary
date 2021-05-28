@@ -94,7 +94,7 @@ public class CreateTerrain : MonoBehaviour
 
     public string GetColor()
     {
-        Debug.Log("where");
+        //Debug.Log("where");
         return color;
     }
     
@@ -137,7 +137,7 @@ public class CreateTerrain : MonoBehaviour
     }
 
     //Use this for the actual interactions. "co" refers to the color of the face it just intersected
-    void ColorEffect(string co)
+    public void ColorEffect(string co)
     {        
         // Blue extinguishes red, red burns green, and green absorbs blue
         if ((color == "red" & co == "blue") | (color == "green" & co == "red") | (color == "blue" & co == "green"))
@@ -201,7 +201,7 @@ public class CreateTerrain : MonoBehaviour
     {
         if (connected && shift)
         {
-            ColorEffect(shiftto);
+            //ColorEffect(shiftto);
             shift = false;
         }
     }

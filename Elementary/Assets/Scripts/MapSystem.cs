@@ -77,7 +77,20 @@ public class MapSystem : MonoBehaviour
                 {
                     connects[j] = false;
                 }
+                t = Find(x2, z2, y2 + 2.0f);
+
+                if (t >= 0)
+                {
+                    connects[j] = false;
+                }
+
                 t = Find(x2, z2, y2 - 1.0f);
+
+                if (t >= 0)
+                {
+                    connects[t] = false;
+                }
+                t = Find(x2, z2, y2 - 2.0f);
 
                 if (t >= 0)
                 {
@@ -167,11 +180,24 @@ public class MapSystem : MonoBehaviour
     }
 
 
+    public void SetTile(float x, float z, float y, string color, string direction)
+    {
+        int t = Find(x, z, y);
+
+        if (t < 0)
+        {
+            return;
+        }
+
+        mapspace[t].SetColor(color, direction);
+    }
+
+
     //determine the color of the tile beneath the player
     public string FindTile(float x, float z, float y)
     {
         //Debug.Log(x + ", " + z + ", " + y);
-        int t = Find(x, z, y - 1.0f);
+        int t = Find(x, z, y);
 
         
         
