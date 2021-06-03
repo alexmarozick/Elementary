@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    void Start () {
+        if(ScoreManager.Instance != null){
+            Destroy(ScoreManager.Instance);
+        }
+    }
     public void ExitButton() {
         Application.Quit();
         Debug.Log("Game closed");
