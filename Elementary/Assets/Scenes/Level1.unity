@@ -467,6 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsText: {fileID: 988432114}
   scene: Level2
+  ScoreScreen: {fileID: 1729128270}
 --- !u!114 &79819344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,6 +994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsText: {fileID: 1179967975}
   scene: Level1
+  ScoreScreen: {fileID: 1729128270}
 --- !u!224 &240180999
 RectTransform:
   m_ObjectHideFlags: 0
