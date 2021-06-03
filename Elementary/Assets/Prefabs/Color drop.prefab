@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4519325720241942625}
   - component: {fileID: 4519325720241942630}
   m_Layer: 0
-  m_Name: Color drop
+  m_Name: Color Drop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4831,5 +4831,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cdfec6492e16b4797dcfb67691482e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: yellow
+  color: green
   tracker: {fileID: 2421201872753812010, guid: 37c3c9ec4ab76534d94c7d8d537f7251, type: 3}

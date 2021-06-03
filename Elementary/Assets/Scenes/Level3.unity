@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44824737, g: 0.49827468, b: 0.5755835, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482476, g: 0.49827492, b: 0.57558435, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1807,7 +1807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsText: {fileID: 286918151}
-  scene: MainMenu
+  scene: Level4
   ScoreScreen: {fileID: 770919786}
 --- !u!114 &576804951
 MonoBehaviour:
