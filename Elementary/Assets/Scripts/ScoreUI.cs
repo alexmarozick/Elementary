@@ -10,12 +10,12 @@ public class ScoreUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = "Score: " + ScoreManager.Instance.Score;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        scoreText.text = "Score: " + ScoreManager.Instance.Score;
+
     }
 }
