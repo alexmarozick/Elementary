@@ -9,11 +9,16 @@ public class ReachGoal : MonoBehaviour
     bool connected;
     public ResultScreen victoryscreen;
 
+    public AudioSource audioSource;
+    public AudioClip clip;
+    public float volume=0.5f;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.transform == player)
         {
             connected = true;
+            audioSource.PlayOneShot(clip, volume);
         }
     }
 
