@@ -13,6 +13,8 @@ public class ResultScreen : MonoBehaviour
     public string scene;
 
     public void Setup(int score) {
+        GameObject ScoreScreen = GameObject.Find("Score");
+        ScoreScreen.SetActive(false);
         gameObject.SetActive(true);
         pointsText.text = score.ToString() + " POINTS";    
     }

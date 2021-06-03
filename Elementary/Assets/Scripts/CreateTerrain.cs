@@ -20,7 +20,7 @@ public class CreateTerrain : MonoBehaviour
 
     CreateFace script1;
 
-    private Color yColor = new Color(0.914f,0.788f,0.263f); 
+    private Color yColor = new Color(0.914f, 0.788f, 0.263f);
     private Color rColor = new Color(0.871f, 0.376f, 0.141f);
     private Color bColor = new Color(0.275f, 0.451f, 0.773f);
     private Color gColor = new Color(0.545f, 0.545f, 0.545f);
@@ -39,7 +39,7 @@ public class CreateTerrain : MonoBehaviour
             basecolor = (ColorTracker)tracker.GetComponent(typeof(ColorTracker));
         }
 
-        Create(color);    
+        Create(color);
     }
 
     public void Create(string co)
@@ -97,7 +97,7 @@ public class CreateTerrain : MonoBehaviour
         //Debug.Log("where");
         return color;
     }
-    
+
     //Method to change tile color
     public void SetColor(string co)
     {
@@ -138,7 +138,7 @@ public class CreateTerrain : MonoBehaviour
 
     //Use this for the actual interactions. "co" refers to the color of the face it just intersected
     public void ColorEffect(string co)
-    {        
+    {
         // Blue extinguishes red, red burns green, and green absorbs blue
         if ((color == "red" & co == "blue") | (color == "green" & co == "red") | (color == "blue" & co == "green"))
         {
@@ -148,7 +148,8 @@ public class CreateTerrain : MonoBehaviour
         // If the color of the terrain is red and it isn't blue, the player dies
         else if (color == "red" & co != "blue")
         {
-            gameover.Setup(0);
+            ScoreManager.Instance.Score -= 20;
+            gameover.Setup(ScoreManager.Instance.Score);
         }
 
         // Grey never replaces a color
@@ -172,11 +173,11 @@ public class CreateTerrain : MonoBehaviour
             {
                 //Debug.Log("whoo");
                 script1 = (CreateFace)other.GetComponentInParent(typeof(CreateFace));
-                
+
                 if (script1 != null)
                 {
                     //Debug.Log(script1.AskColor());
-                    
+
                     if (script1.AskColor() != "travel")
                     {
                         connected = true;
@@ -185,7 +186,7 @@ public class CreateTerrain : MonoBehaviour
                     }
                 }
             }
-        }  
+        }
     }
 
     void OnTriggerExit(Collider other)

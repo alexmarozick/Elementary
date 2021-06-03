@@ -11,7 +11,6 @@ public class FallDetect : MonoBehaviour
     int hasfallen;
     public ResultScreen GameOverScreen;
     //TODO count moves as we go and store in pointTotal
-    int pointTotal = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +22,11 @@ public class FallDetect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.y <= .10) {
+        if (player.transform.position.y <= .10)
+        {
             hasfallen += 1;
-            if (hasfallen == 1) {
+            if (hasfallen == 1)
+            {
                 ScoreManager.Instance.Score -= 20;
             }
             GameOverScreen.Setup(ScoreManager.Instance.Score);

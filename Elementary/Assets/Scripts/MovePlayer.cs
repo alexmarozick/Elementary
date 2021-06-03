@@ -49,15 +49,15 @@ public class MovePlayer : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
-        
+
         if (newsquare)
         {
-            
+
             newsquare = false;
             CheckSquare();
         }
-        
-        if ((canroll == 3)&& !isRolling &&  (((x > InputThreshold || x < -InputThreshold) && y ==0) || (x == 0 && (y > InputThreshold || y < -InputThreshold))))
+
+        if ((canroll == 3) && !isRolling && (((x > InputThreshold || x < -InputThreshold) && y == 0) || (x == 0 && (y > InputThreshold || y < -InputThreshold))))
         {
             // the translate is for sliding the cube
             // transform.Translate(Vector3.left * x * 10 * Time.deltaTime);
@@ -66,40 +66,43 @@ public class MovePlayer : MonoBehaviour
             if (direct == 0)
             {
 
-            } else if (direct == 2)
+            }
+            else if (direct == 2)
             {
                 x = -x;
                 y = -y;
-            } else if (direct == 1)
+            }
+            else if (direct == 1)
             {
                 float t = x;
                 x = y;
                 y = -t;
-            } else if (direct == 3)
+            }
+            else if (direct == 3)
             {
                 float t = x;
                 x = -y;
                 y = t;
             }
 
-            
-            if(scriptI.CanMove(x, y))
+
+            if (scriptI.CanMove(x, y))
             {
                 isRolling = true;
                 canroll = 0;
                 StartCoroutine(RollingCube(x, y));
             }
-            
-            
-            
+
+
+
         }
         if (!isRolling)
         {
-            if(canroll < 3)
+            if (canroll < 3)
             {
                 canroll += 1;
             }
-            
+
         }
     }
 
@@ -128,7 +131,7 @@ public class MovePlayer : MonoBehaviour
     //Check color of tile below before it responds to your tile. Initialize color effects
     public void CheckSquare()
     {
-        
+
 
         string changecolor = scriptI.AskColor("down");
         changecolor = scriptI.AskColor("north");
@@ -143,7 +146,7 @@ public class MovePlayer : MonoBehaviour
     {
         if (direction == "down")
         {
-            
+
             if (current == "right")
             {
                 script3.SetColor(newcolor);
@@ -162,7 +165,7 @@ public class MovePlayer : MonoBehaviour
             }
         }
     }
-    
+
 
     //Method is used to make tile color consistent
     public void AngleFix()
@@ -210,7 +213,7 @@ public class MovePlayer : MonoBehaviour
                 script2.SetColor(script5.GetColor());
                 script5.SetColor(hold);
             }
-            
+
             else if (previous == "left")
             {
                 string hold = script3.GetColor();
@@ -257,7 +260,7 @@ public class MovePlayer : MonoBehaviour
 
             else if (previous == "right")
             {
-                
+
                 string hold = script3.GetColor();
                 script3.SetColor(script4.GetColor());
                 script4.SetColor(hold);
@@ -318,7 +321,7 @@ public class MovePlayer : MonoBehaviour
 
             else if (previous == "down")
             {
-                
+
                 string hold = script1.GetColor();
                 script1.SetColor(script6.GetColor());
                 script6.SetColor(hold);
@@ -329,9 +332,9 @@ public class MovePlayer : MonoBehaviour
 
                 hold = script4.GetColor();
                 script4.SetColor(script5.GetColor());
-                script5.SetColor(hold); 
+                script5.SetColor(hold);
             }
-            
+
             else if (previous == "up")
             {
                 string hold = script3.GetColor();
@@ -405,7 +408,7 @@ public class MovePlayer : MonoBehaviour
 
                 hold = script2.GetColor();
                 script2.SetColor(script4.GetColor());
-                script4.SetColor(hold);   
+                script4.SetColor(hold);
             }
         }
     }
@@ -416,7 +419,8 @@ public class MovePlayer : MonoBehaviour
         if (current == "right")
         {
             scriptI.PassColor(script3.GetColor(), script2.GetColor(), script6.GetColor(), script5.GetColor(), script1.GetColor());
-        }else if (current == "left")
+        }
+        else if (current == "left")
         {
             scriptI.PassColor(script4.GetColor(), script5.GetColor(), script6.GetColor(), script2.GetColor(), script1.GetColor());
         }
@@ -433,19 +437,20 @@ public class MovePlayer : MonoBehaviour
     void MoveBox()
     {
 
-        
+
         if (current == "right")
         {
             coordinate.transform.position += new Vector3(1.0f, 0f, 0f);
-        }else if(current == "left")
+        }
+        else if (current == "left")
         {
             coordinate.transform.position += new Vector3(-1.0f, 0f, 0f);
         }
-        else if(current == "up")
+        else if (current == "up")
         {
             coordinate.transform.position += new Vector3(0.0f, 0f, 1.0f);
         }
-        else if(current == "down")
+        else if (current == "down")
         {
             coordinate.transform.position += new Vector3(0.0f, 0f, -1.0f);
         }
@@ -461,7 +466,7 @@ public class MovePlayer : MonoBehaviour
     IEnumerator RollingCube(float x, float y)
     {
         Debug.Log("Roll");
-        
+
         Close();
         previous = current;
         float elapsed = 0.0f;
@@ -476,7 +481,7 @@ public class MovePlayer : MonoBehaviour
             point = x > 0 ?
                 transform.position + (Vector3.right * scale) :
                 transform.position + (Vector3.left * scale);
-            
+
             angle = x > 0 ? -90 : 90;
             direction = x > 0 ? Vector3.right : Vector3.left;
 
@@ -497,7 +502,7 @@ public class MovePlayer : MonoBehaviour
             point = y > 0 ?
                 transform.position + (Vector3.forward * scale) :
                 transform.position + (Vector3.back * scale);
-            
+
             angle = y > 0 ? 90 : -90;
             direction = y > 0 ? Vector3.forward : Vector3.back;
 
@@ -527,7 +532,7 @@ public class MovePlayer : MonoBehaviour
         }
 
         transform.position = adjustPos;
-        
+
         transform.rotation = adjustRotation;
         AngleFix();
         isRolling = false;
