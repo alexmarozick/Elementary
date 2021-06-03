@@ -8,6 +8,7 @@ using UnityEngine;
 public class FallDetect : MonoBehaviour
 {
     GameObject player;
+    int hasfallen;
     public ResultScreen GameOverScreen;
     //TODO count moves as we go and store in pointTotal
     int pointTotal = 0;
@@ -16,13 +17,18 @@ public class FallDetect : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        hasfallen = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (player.transform.position.y <= .10) {
-            GameOverScreen.Setup(pointTotal);
+            hasfallen += 1;
+            if (hasfallen == 1) {
+                ScoreManager.Instance.Score -= 20;
+            }
+            GameOverScreen.Setup(ScoreManager.Instance.Score);
         }
     }
 }

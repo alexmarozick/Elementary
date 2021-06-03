@@ -9,30 +9,20 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
 
-    public static ScoreManager instance;
+    public static ScoreManager Instance;
 
-    public Text scoreText;
-    public Text highscoreText;
+    public int Score = 0;
 
-    int score = 0;
-    int highscore = 0;
-
-    private void Awake(){
-        instance = this;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        scoreText.text = score.ToString() + " POINTS";
-        highscoreText.text = "HIGHSCORE: " + highscore.ToString();
-    }
-
-    public void AddPoint(){
-        score += 1;
-        scoreText.text = score.ToString() + " POINTS";
-    }
-
-    public int returnPoint() {
-        return score;
-    }
+    void Awake ()   
+        {
+        if (Instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy (gameObject);
+        }
+      }
 }

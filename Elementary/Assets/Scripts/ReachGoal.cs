@@ -19,6 +19,7 @@ public class ReachGoal : MonoBehaviour
         {
             connected = true;
             audioSource.PlayOneShot(clip, volume);
+            ScoreManager.Instance.Score += 100;
         }
     }
 
@@ -42,7 +43,7 @@ public class ReachGoal : MonoBehaviour
             {
                 if (raycastHit.collider.transform == player)
                 {
-                    victoryscreen.Setup(100);
+                    victoryscreen.Setup(ScoreManager.Instance.Score);
                 }
             }
         }
